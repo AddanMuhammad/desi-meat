@@ -1,6 +1,7 @@
 import { NavBar } from "@/app/components/navbar";
 import { PerimumSeriesSelector } from "@/app/components/premium-selection";
 import { SeriesSelector } from "@/app/components/series-selector";
+import SubFooter from "@/app/components/sub-footers";
 import { PrimaryButton } from "@/app/components/ui/primary-button";
 
 export default function HomePage() {
@@ -40,6 +41,7 @@ export default function HomePage() {
       </div>
       <SeriesSelector />
       <PerimumSeriesSelector />
+      <SubFooter />
     </div>
   );
 }
