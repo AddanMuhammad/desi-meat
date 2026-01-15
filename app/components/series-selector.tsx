@@ -1,52 +1,8 @@
 import { PrimaryButton } from "@/app/components/ui/primary-button";
-
-interface SeriesSelectorCard {
-    title: string;
-    description: string;
-    button: {
-        text: string;
-        isGradient: boolean;
-        isPrimary: boolean;
-    };
-    img_url: string;
-}
-
+import { dummyCardData } from "../json-data/series-selector";
 
 
 export const SeriesSelector = () => {
-    const dummyCardData: SeriesSelectorCard[] = [
-        {
-            title: 'FIT',
-            description: 'For Gym & Clean Eating',
-            button: {
-                text: 'Order Online',
-                isGradient: true,
-                isPrimary: true,
-            },
-            img_url: '/images/main-steak.png',
-        },
-        {
-            title: 'BALANCE',
-            description: 'For Everyday Family Meds',
-            button: {
-                text: 'Order Online',
-                isGradient: true,
-                isPrimary: true,
-            },
-            img_url: '/images/main-steak.png',
-        },
-        {
-            title: 'FEAST',
-            description: 'For BBQs & Gathering',
-            button: {
-                text: 'Order Online',
-                isGradient: true,
-                isPrimary: true,
-            },
-            img_url: '/images/main-steak.png',
-        }
-    ];
-
     return (
         <div className="mt-[120px] mx-[60px]">
             <div className="flex justify-between items-center mb-8">
@@ -65,19 +21,22 @@ export const SeriesSelector = () => {
             </div>
 
             {/* Cards grid - 3 per row */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-2">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-42">
                 {dummyCardData.map((card, index) => (
                     <div
                         key={index}
-                        className="border border-[#2f2f2f] rounded-2xl p-4 flex flex-row justify-between shadow-lg h-[200px] "
-                        style={{backgroundImage:'linear-gradient(to right, #141008, #343434)'}}
+                        className="border border-[#2f2f2f] rounded-2xl p-6 flex flex-row justify-between shadow-lg
+                         h-[230px] bg-linear-to-r from-[#B78E39]/20 to-[#161616]"
+                        
                     >
+                        {/* bg-linear-gradient(to right,, #343434) */}
                         <div className="flex flex-col justify-between">
                             
-                            <h3 className="text-lg md:text-xl font-semibold text-white capitalize">
+                            <h3 className="text-lg md:text-xl font-extrabold text-white">
                                 {card.title} <br />
-                                <span className="text-sm text-gray-300">
-                                {card.description}</span>
+                                <span className="text-sm text-gray-300 font-light">
+                                    {card.description}
+                                </span>
                             </h3>
                             <PrimaryButton
                                 primaryColor="#d4a64a"
@@ -98,4 +57,4 @@ export const SeriesSelector = () => {
             </div>
         </div>
     );
-} 
+}

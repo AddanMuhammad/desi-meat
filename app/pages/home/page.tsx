@@ -1,9 +1,9 @@
 import { NavBar } from "@/app/components/navbar";
+import { PerimumSeriesSelector } from "@/app/components/premium-selection";
 import { SeriesSelector } from "@/app/components/series-selector";
 import { PrimaryButton } from "@/app/components/ui/primary-button";
 
 export default function HomePage() {
-  console.log("in home page");
   return (
     <div>
       <div className="relative w-full h-screen overflow-hidden">
@@ -39,6 +39,7 @@ export default function HomePage() {
         </div>
       </div>
       <SeriesSelector />
+      <PerimumSeriesSelector />
     </div>
   );
 }
