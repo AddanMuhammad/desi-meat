@@ -1,4 +1,6 @@
+import { BestSeller } from "@/app/components/best-seller";
 import { NavBar } from "@/app/components/navbar";
+import { Order } from "@/app/components/order";
 import { PerimumSeriesSelector } from "@/app/components/premium-selection";
 import { SeriesSelector } from "@/app/components/series-selector";
 import SubFooter from "@/app/components/sub-footers";
@@ -42,9 +44,12 @@ export default function HomePage() {
         </div>
       </div>
       <SeriesSelector />
-      <Testimonials />
+      
       <PerimumSeriesSelector />
+      <BestSeller />
       <WhyChooseUs />
+      <Order />
+      <Testimonials />
       <SubFooter />
     </div>
   );
