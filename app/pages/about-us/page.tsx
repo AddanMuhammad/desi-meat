@@ -3,13 +3,36 @@ import Footer from "@/app/components/ui/footer";
 import { PrimaryButton } from "@/app/components/ui/primary-button";
 import Image from "next/image";
 
+const features = [
+  {
+    title: "Quality First",
+    description:
+      "Carefully sourced proteins, prepared fresh in a clean, controlled environment.",
+  },
+  {
+    title: "Flavor with Purpose",
+    description:
+      "Balanced marinades designed for fitness meals or bold family feasts.",
+  },
+  {
+    title: "Community Focused",
+    description:
+      "Proudly serving local families, fitness enthusiasts, and celebrations in Fleetwood.",
+  },
+  {
+    title: "Prepared Your Way",
+    description:
+      "Custom cuts, spice levels, and bulk options tailored to your needs.",
+  },
+];
+
 const AboutUs = () => {
   return (
     <div>
       <NavBar />
       <div className="border-t border-gray-500/90" />
-      <section className="w-full text-white py-10">
-        <div className="max-w-7xl  mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="w-full text-white">
+        <div className="max-w-7xl h-screen mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* LEFT IMAGE */}
           <div className="relative w-full h-120">
             <Image
@@ -65,6 +88,59 @@ const AboutUs = () => {
               className="uppercase tracking-wider"
               gradientToWhite={true}
             />
+          </div>
+        </div>
+
+        <div className="bg-black">
+          <div className="max-w-7xl   mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* LEFT IMAGE */}
+            <div className="relative w-full h-120">
+              <Image
+                src="/images/about-us1.png"
+                alt="Chef"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+
+            {/* RIGHT CONTENT */}
+            <div className="h-120 overflow-hidden relative mt-10">
+              {/* Badge */}
+              <span className="inline-block mb-6 rounded-full bg-[#FFB9004D] px-5 py-2 text-xs font-semibold tracking-widest text-[#FFB900] border border-[#FFB9004D]">
+                OUR PHILOSOPHY
+              </span>
+
+              {/* Heading */}
+              <h2 className="text-2xl lg:text-4xl font-bold leading-tight mb-6">
+                The Dhesi{" "}
+                <span className=" italic bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent">
+                  Difference
+                </span>
+              </h2>
+
+              <div className="promise-block mb-8 gap-4">
+                <p className="text-base font-semibold text-white">
+                  WHAT WE PROMISE:
+                </p>
+                <div className="flex-1 border-t-2 border-dotted border-gray-300/70 mt-2" />
+              </div>
+
+              <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+                {features.map((item) => (
+                  <div key={item.title} className="feature-item">
+                    <div>
+                      <h4 className="mb-1 mt-2 font-semibold text-[#d4af37]">
+                        {item.title}
+                      </h4>
+                      <p className="text-sm text-gray-300">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
