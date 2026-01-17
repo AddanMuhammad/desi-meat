@@ -2,7 +2,9 @@ import { NavBar } from "@/app/components/navbar";
 import { PerimumSeriesSelector } from "@/app/components/premium-selection";
 import { SeriesSelector } from "@/app/components/series-selector";
 import SubFooter from "@/app/components/sub-footers";
+import Testimonials from "@/app/components/testimonials";
 import { PrimaryButton } from "@/app/components/ui/primary-button";
+import WhyChooseUs from "@/app/components/why-choose-us";
 
 export default function HomePage() {
   return (
@@ -40,7 +42,9 @@ export default function HomePage() {
         </div>
       </div>
       <SeriesSelector />
+      <Testimonials />
       <PerimumSeriesSelector />
+      <WhyChooseUs />
       <SubFooter />
     </div>
   );
