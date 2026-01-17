@@ -1,18 +1,64 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import { PrimaryButton } from "@/app/components/ui/primary-button";
 import { dummyCardData } from "../json-data/series-selector";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
 
 export const SeriesSelector = () => {
+    const sectionRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top 75%",
+                    end: "bottom 25%",
+                    toggleActions: "play reverse play reverse",
+                },
+            });
+
+            tl.from(".series-title", {
+                y: 40,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out",
+            })
+                .from(
+                    ".series-subtitle",
+                    { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" },
+                    "-=0.5"
+                )
+                .from(
+                    ".series-card",
+                    {
+                        y: 60,
+                        opacity: 0,
+                        duration: 0.7,
+                        stagger: 0.2,
+                        ease: "power2.out",
+                    },
+                    "-=0.4"
+                );
+        }, sectionRef);
+
+        return () => ctx.revert();
+    }, []);
+
     return (
-        <div className="mt-[120px] mx-[60px]">
+        <div ref={sectionRef} className="mt-[120px] mx-[60px]">
             <div className="flex justify-between items-center mb-8">
-                <h2 className="text-3xl md:text-5xl font-bold leading-tight text-white">
+                <h2 className="series-title text-3xl md:text-5xl font-bold leading-tight text-white">
                     The Series{" "}
                     <span className="italic text-[#B38934] font-light">
                         Selector
                     </span>
                 </h2>
-                <p className="font-bold text-white">
+                <p className="series-subtitle font-bold text-white">
                     Desi Meat{" "}
                     <span className="font-light">
                         – What's your purpose today
@@ -25,8 +71,8 @@ export const SeriesSelector = () => {
                 {dummyCardData.map((card, index) => (
                     <div
                         key={index}
-                        className="border border-[#2f2f2f] rounded-2xl p-6 flex flex-row justify-between shadow-lg
-                         h-[230px] bg-linear-to-r from-[#B78E39]/20 to-[#161616]"
+                        className="series-card border border-[#2f2f2f] rounded-2xl p-6 flex flex-row justify-between shadow-lg
+                         h-full bg-linear-to-r from-[#B78E39]/20 to-[#161616]"
                         
                     >
                         {/* bg-linear-gradient(to right,, #343434) */}
@@ -50,7 +96,7 @@ export const SeriesSelector = () => {
                         <img
                                 src={card.img_url}
                                 alt={card.title}
-                                className="w-1/2 h-full"
+                                className="h-[200px]"
                             />
                     </div>
                 ))}

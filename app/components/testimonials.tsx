@@ -3,6 +3,9 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const testimonials = [
   {
@@ -59,6 +62,7 @@ const Testimonials = () => {
 
   const imageRefs = useRef<HTMLDivElement[]>([]);
   const textRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
   // Create a function to get visible testimonials with loop logic
   const getVisibleTestimonials = () => {
@@ -109,6 +113,35 @@ const Testimonials = () => {
     }
   }, [activeIndex]);
 
+  // Scroll trigger animation for initial entrance
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 75%",
+          end: "bottom 25%",
+          toggleActions: "play reverse play reverse",
+        },
+      });
+
+      tl.from(".testimonial-images", {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out",
+      })
+        
+        .from(
+          ".testimonial-controls",
+          { y: 20, opacity: 0.5, duration: 0.6, ease: "power2.out" },
+          "-=0.4"
+        );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   const goPrev = () => {
     setActiveIndex((prev) => {
       const newIndex = prev - 1;
@@ -124,10 +157,10 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="h-full flex items-center justify-center bg-linear-to-br from-[#cfa44a] to-[#e6c36a] px-4 overflow-hidden p-10 md:py-20">
+    <section ref={sectionRef} className="h-full flex items-center justify-center bg-linear-to-br from-[#cfa44a] to-[#e6c36a] px-4 overflow-hidden p-10 md:py-20">
       <div className="max-w-4xl w-full text-center">
         {/* Images */}
-        <div className="flex justify-center items-center gap-5 mb-12">
+        <div className="testimonial-images flex justify-center items-center gap-5 mb-12">
           {visibleTestimonials.map((item, i) => (
             <div
               key={`${item.name}-${i}`}
@@ -161,7 +194,7 @@ const Testimonials = () => {
         </div>
 
         {/* Controls */}
-        <div className="flex justify-center gap-4">
+        <div className="testimonial-controls flex justify-center gap-4">
           <button
             onClick={goPrev}
             className="w-10 h-10 rounded-full border border-black flex items-center justify-center transition hover:bg-black hover:text-white"

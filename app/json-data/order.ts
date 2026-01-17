@@ -1,45 +1,29 @@
 interface orderCard {
     title: string;
     description: string;
-    button: {
-        text: string;
-        isGradient: boolean;
-        isPrimary: boolean;
-    };
-    img_url: string;
+    icon_url: string
 }
 
 
 export const orderCardData: orderCard[] = [
         {
-            title: 'FIT',
-            description: 'For Gym & Clean Eating',
-            button: {
-                text: 'Order Online',
-                isGradient: true,
-                isPrimary: true,
-            },
-            img_url: '/images/series-1.svg',
+            title: 'Choose Your Purpose',
+            description: 'Select a series based on family meals, fitness goals, or bulk ordering needs.',
+            icon_url: '/icons/purpose.svg',
         },
         {
-            title: 'BALANCE',
-            description: 'For Everyday Family Meds',
-            button: {
-                text: 'Order Online',
-                isGradient: true,
-                isPrimary: true,
-            },
-            img_url: '/images/series-2.svg',
+            title: 'Pick Protein & Cut',
+            description: 'Choose your preferred chicken cut, freshly trimmed and prepared.',
+            icon_url: '/icons/pick.svg',
         },
         {
-            title: 'FEAST',
-            description: 'For BBQs & Gathering',
-            button: {
-                text: 'Order Online',
-                isGradient: true,
-                isPrimary: true,
-            },
-            img_url: '/images/series-3.svg',
+            title: 'Customize Your Flavour',
+            description: 'Select your marinade and spice level — Hot, Medium, or Non-Spicy.',
+            icon_url: '/icons/customize.svg',
         },
-
+        {
+            title: 'Add Extras & Checkout',
+            description: 'Add sauces or bulk packs, choose quantity, and place your order easily.',
+            icon_url: '/icons/checkout.svg',
+        },
 ];
