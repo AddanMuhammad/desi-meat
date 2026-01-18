@@ -167,7 +167,7 @@ const Testimonials = () => {
               ref={(el) => {
                 if (el) imageRefs.current[i] = el;
               }}
-              className="rounded-full h-[60px] w-[60px] border border-black/50 overflow-hidden flex-shrink-0 relative"
+              className="rounded-full h-[60px] w-[60px] border border-black/50 overflow-hidden shrink-0 relative"
             >
               <Image
                 src={item.image}
