@@ -10,8 +10,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const SeriesSelector = () => {
     const sectionRef = useRef<HTMLDivElement>(null);
+    const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
     useEffect(() => {
+        if (!sectionRef.current) return;
+        
         const ctx = gsap.context(() => {
             const tl = gsap.timeline({
                 scrollTrigger: {
@@ -33,11 +36,16 @@ export const SeriesSelector = () => {
                     { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" },
                     "-=0.5"
                 )
-                .from(
+                .fromTo(
                     ".series-card",
                     {
                         y: 60,
                         opacity: 0,
+                        immediateRender: false,
+                    },
+                    {
+                        y: 0,
+                        opacity: 1,
                         duration: 0.7,
                         stagger: 0.2,
                         ease: "power2.out",
@@ -48,6 +56,49 @@ export const SeriesSelector = () => {
 
         return () => ctx.revert();
     }, []);
+
+    // Hover animations for cards - separate effect to ensure refs are populated
+    useEffect(() => {
+        const hoverHandlers: Array<{ card: HTMLDivElement; enter: () => void; leave: () => void }> = [];
+
+        cardRefs.current.forEach((card) => {
+            if (card) {
+                const handleMouseEnter = () => {
+                    gsap.to(card, {
+                        scale: 1.05,
+                        y: -8,
+                        boxShadow: "0 20px 40px rgba(179, 137, 52, 0.3)",
+                        borderColor: "rgba(179, 137, 52, 0.5)",
+                        duration: 0.3,
+                        ease: "power2.out",
+                    });
+                };
+
+                const handleMouseLeave = () => {
+                    gsap.to(card, {
+                        scale: 1,
+                        y: 0,
+                        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                        borderColor: "#2f2f2f",
+                        duration: 0.3,
+                        ease: "power2.out",
+                    });
+                };
+
+                card.addEventListener("mouseenter", handleMouseEnter);
+                card.addEventListener("mouseleave", handleMouseLeave);
+                
+                hoverHandlers.push({ card, enter: handleMouseEnter, leave: handleMouseLeave });
+            }
+        });
+
+        return () => {
+            hoverHandlers.forEach(({ card, enter, leave }) => {
+                card.removeEventListener("mouseenter", enter);
+                card.removeEventListener("mouseleave", leave);
+            });
+        };
+    }, [dummyCardData]);
 
     return (
         <div ref={sectionRef} className="mt-[120px] mx-[60px]">
@@ -71,9 +122,10 @@ export const SeriesSelector = () => {
                 {dummyCardData.map((card, index) => (
                     <div
                         key={index}
+                        ref={(el) => { cardRefs.current[index] = el; }}
                         className="series-card border border-[#2f2f2f] rounded-2xl p-6 flex flex-row justify-between shadow-lg
-                         h-full bg-linear-to-r from-[#B78E39]/20 to-[#161616]"
-                        
+                         h-full bg-linear-to-r from-[#B78E39]/20 to-[#161616] cursor-pointer transition-all"
+                        style={{ opacity: 1 }}
                     >
                         {/* bg-linear-gradient(to right,, #343434) */}
                         <div className="flex flex-col justify-between">

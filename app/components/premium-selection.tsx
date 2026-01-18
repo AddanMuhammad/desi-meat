@@ -8,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const PerimumSeriesSelector = () => {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(0);
+    const selectedIndexRef = useRef<number | null>(0);
     const sectionRef = useRef<HTMLDivElement>(null);
     const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
     const descriptionRefs = useRef<(HTMLParagraphElement | null)[]>([]);
@@ -43,6 +44,58 @@ export const PerimumSeriesSelector = () => {
         }, sectionRef);
 
         return () => ctx.revert();
+    }, []);
+
+    // Update ref when selectedIndex changes
+    useEffect(() => {
+        selectedIndexRef.current = selectedIndex;
+    }, [selectedIndex]);
+
+    // Hover animations for premium cards
+    useEffect(() => {
+        const hoverHandlers: Array<{ card: HTMLDivElement; enter: () => void; leave: () => void }> = [];
+        
+        cardRefs.current.forEach((card, index) => {
+            if (card) {
+                const handleMouseEnter = () => {
+                    // Check current selection state dynamically using ref
+                    if (selectedIndexRef.current !== index) {
+                        gsap.to(card, {
+                            backgroundColor: "rgba(179, 137, 52, 0.15)",
+                            scale: 1.02,
+                            y: -4,
+                            duration: 0.3,
+                            ease: "power2.out",
+                        });
+                    }
+                };
+
+                const handleMouseLeave = () => {
+                    // Check current selection state dynamically using ref
+                    if (selectedIndexRef.current !== index) {
+                        gsap.to(card, {
+                            backgroundColor: "transparent",
+                            scale: 1,
+                            y: 0,
+                            duration: 0.3,
+                            ease: "power2.out",
+                        });
+                    }
+                };
+
+                card.addEventListener("mouseenter", handleMouseEnter);
+                card.addEventListener("mouseleave", handleMouseLeave);
+                
+                hoverHandlers.push({ card, enter: handleMouseEnter, leave: handleMouseLeave });
+            }
+        });
+
+        return () => {
+            hoverHandlers.forEach(({ card, enter, leave }) => {
+                card.removeEventListener("mouseenter", enter);
+                card.removeEventListener("mouseleave", leave);
+            });
+        };
     }, []);
 
     // Animation when selection changes
@@ -116,7 +169,7 @@ export const PerimumSeriesSelector = () => {
             
             </div>
 
-            <div className="flex flex-row justify-between gap-4">
+            <div className="flex flex-col lg:flex-row justify-between gap-4">
                 <div className="premium-content w-full border border-[#2f2f2f] rounded-2xl p-6 flex flex-col justify-between shadow-lg gap-2 bg-[#191919]">
                 {premiumSelection.map((card, index) => {
                     const isSelected = selectedIndex === index;
@@ -164,7 +217,7 @@ export const PerimumSeriesSelector = () => {
                     );
                 })}
                 </div>
-                <img src="/images/premium-meat.png" alt="" className="premium-image f-"/>
+                <img src="/images/premium-meat.png" alt="" className="premium-image h-[600px] w-1/2"/>
             </div>
         </div>
     );
