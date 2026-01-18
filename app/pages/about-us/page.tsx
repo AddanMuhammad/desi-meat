@@ -1,4 +1,5 @@
 import { NavBar } from "@/app/components/navbar";
+import Testimonials from "@/app/components/testimonials";
 import Footer from "@/app/components/ui/footer";
 import { PrimaryButton } from "@/app/components/ui/primary-button";
 import Image from "next/image";
@@ -60,20 +61,20 @@ const AboutUs = () => {
             </h2>
 
             {/* Description */}
-            <p className="text-gray-300 leading-relaxed text-sm">
+            <p className="text-gray-300 leading-relaxed text-sm text-justify">
               Welcome to Desi Meats Fleetwood—your modern neighborhood protein
               studio. We're not just another meat shop; we're a culinary partner
               for your lifestyle.
             </p>
 
-            <p className="text-gray-300 leading-relaxed text-sm mb-6">
+            <p className="text-gray-300 leading-relaxed text-sm text-justify mb-6">
               Founded with a passion for quality and a vision for convenience,
               we recognized that today’s busy families, health-conscious
               individuals, and entertainers need more than just raw ingredients.
               They need solutions.
             </p>
 
-            <p className="text-gray-300 leading-relaxed text-sm mb-10">
+            <p className="text-gray-300 leading-relaxed text-sm text-justify mb-10">
               Located in the heart of Fleetwood, Surrey BC, we bridge the gap
               between traditional butcher craftsmanship and contemporary,
               flavor-forward convenience. Every cut is prepared fresh daily,
@@ -133,7 +134,7 @@ const AboutUs = () => {
                       <h4 className="mb-1 mt-2 font-semibold text-[#d4af37]">
                         {item.title}
                       </h4>
-                      <p className="text-sm text-gray-300">
+                      <p className="text-sm text-gray-300 text-justify">
                         {item.description}
                       </p>
                     </div>
@@ -143,6 +144,44 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
+
+        <div className="relative w-full h-[280px] sm:h-[350px] md:h-[420px] lg:h-[500px] overflow-hidden">
+          {/* Background image */}
+          <img
+            src="/images/about-us2.png"
+            alt="About us background"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+
+          <div className="relative z-10 flex flex-col justify-center h-full">
+            {/* Text content */}
+            <div className="max-w-3xl px-6 sm:px-10 md:px-24">
+              <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight text-white">
+                Meet Our{" "}
+                <span className="italic text-[#d4a64a] font-light">Team</span>
+              </h1>
+
+              <p className="text-xs sm:text-sm md:text-base text-gray-200 mt-4 sm:mt-5 max-w-xl text-justify">
+                Our skilled butchers and marinade artisans bring years of
+                expertise and a genuine passion for food. We're here to offer
+                advice, custom-cut to your specifications, and ensure you leave
+                with exactly what you need for your meal.
+              </p>
+            </div>
+
+            {/* Button */}
+            <div className="px-6 sm:px-10 md:px-24 mt-6 sm:mt-8">
+              <PrimaryButton
+                primaryColor="#d4a64a"
+                text="ORDER ONLINE"
+                className="uppercase tracking-wider text-xs sm:text-sm"
+                gradientToWhite
+              />
+            </div>
+          </div>
+        </div>
+
+        <Testimonials />
       </section>
 
       <div className="border-t border-gray-500/90" />

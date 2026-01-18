@@ -104,7 +104,7 @@ const Testimonials = () => {
       gsap.fromTo(
         textRef.current,
         { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }
+        { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
       );
     }
   }, [activeIndex]);
@@ -124,7 +124,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="h-full flex items-center justify-center bg-linear-to-br from-[#cfa44a] to-[#e6c36a] px-4 overflow-hidden p-10 md:py-20">
+    <section className="h-full flex items-center justify-center bg-linear-to-l from-[#E8CC7B] to-[#B38934] px-4 overflow-hidden p-10 md:py-20">
       <div className="max-w-4xl w-full text-center">
         {/* Images */}
         <div className="flex justify-center items-center gap-5 mb-12">
