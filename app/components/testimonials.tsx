@@ -108,7 +108,7 @@ const Testimonials = () => {
       gsap.fromTo(
         textRef.current,
         { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }
+        { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
       );
     }
   }, [activeIndex]);
@@ -167,7 +167,7 @@ const Testimonials = () => {
               ref={(el) => {
                 if (el) imageRefs.current[i] = el;
               }}
-              className="rounded-full h-[60px] w-[60px] border border-black/50 overflow-hidden flex-shrink-0 relative"
+              className="rounded-full h-[60px] w-[60px] border border-black/50 overflow-hidden shrink-0 relative"
             >
               <Image
                 src={item.image}

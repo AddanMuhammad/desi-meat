@@ -22,7 +22,7 @@ const Footer = () => {
               {" "}
               <li>
                 {" "}
-                <Link href="/about">About Us</Link>{" "}
+                <Link href="/pages/about-us">About Us</Link>{" "}
               </li>{" "}
               <li>
                 {" "}
@@ -30,7 +30,7 @@ const Footer = () => {
               </li>{" "}
               <li>
                 {" "}
-                <Link href="/contact">Contact Us</Link>{" "}
+                <Link href="/pages/contact-us">Contact Us</Link>{" "}
               </li>{" "}
               <li>
                 {" "}
