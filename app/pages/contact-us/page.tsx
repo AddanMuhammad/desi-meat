@@ -16,13 +16,15 @@ const ContactSection = () => {
     phone: "",
     message: "",
   });
+  const [showPopup, setShowPopup] = useState(false);
 
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const validateField = (name: string, value: string) => {
     let error = "";
 
-    if (!value.trim()) {
+    // Required validation (phone is optional)
+    if (!value.trim() && name !== "phone") {
       error = "This field is required";
     }
 
@@ -32,6 +34,7 @@ const ContactSection = () => {
       }
     }
 
+    // Phone validation ONLY if value exists
     if (name === "phone" && value) {
       if (!phoneRegex.test(value)) {
         error = "Only numbers and + are allowed";
@@ -44,7 +47,7 @@ const ContactSection = () => {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
 
@@ -57,21 +60,67 @@ const ContactSection = () => {
   };
 
   const handleBlur = (
-    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     validateField(name, value);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    Object.entries(values).forEach(([key, value]) => validateField(key, value));
+    const newErrors: Record<string, string> = {};
 
-    const hasErrors = Object.values(errors).some(Boolean);
-    if (hasErrors) return;
+    Object.entries(values).forEach(([key, value]) => {
+      let error = "";
 
-    console.log("Form Submitted:", values);
+      if (!value.trim() && key !== "phone") {
+        error = "This field is required";
+      }
+
+      if (key === "email" && value && !emailRegex.test(value)) {
+        error = "Please enter a valid email address";
+      }
+
+      if (key === "phone" && value) {
+        if (!phoneRegex.test(value)) {
+          error = "Only numbers and + are allowed";
+        } else if (value.replace("+", "").length < 10) {
+          error = "Phone number is incomplete";
+        }
+      }
+
+      if (error) newErrors[key] = error;
+    });
+
+    setErrors(newErrors);
+    if (Object.keys(newErrors).length > 0) return;
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (!res.ok) throw new Error("Failed to submit");
+
+      // Show success popup
+      setShowPopup(true);
+
+      // Reset form
+      setValues({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } catch (error) {
+      alert("Something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -216,6 +265,42 @@ const ContactSection = () => {
       </section>
       <div className="border-t border-gray-500/90" />
       <Footer />
+
+      {showPopup && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+          <div className="bg-[#111] text-white rounded-2xl p-8 w-[90%] max-w-md text-center animate-scale-in">
+            <div
+              className="
+        h-20 w-20 
+        flex items-center justify-center 
+        rounded-full 
+        bg-[#D4AF37] 
+        text-white 
+        text-4xl font-bold 
+        mx-auto mb-4
+        shadow-[0_0_25px_rgba(212,175,55,0.9)]
+      "
+            >
+              ✓
+            </div>
+
+            <h3 className="text-xl font-semibold mb-2">
+              Message Sent Successfully
+            </h3>
+
+            <p className="text-gray-400 text-sm mb-6">
+              Thank you for contacting us. We’ll get back to you shortly.
+            </p>
+
+            <button
+              onClick={() => setShowPopup(false)}
+              className="px-6 py-2 rounded-full bg-[#D4AF37] text-white font-bold hover:opacity-90 transition cursor-pointer border border-gray-500 hover:border-white"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
