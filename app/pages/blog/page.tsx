@@ -23,7 +23,7 @@ const Blog = () => {
         </h2>
         <p className="max-w-xl text-center text-gray-300 px-4 mb-10">
           Discover the perfect blend of flavor and nutrition with our curated
-          recipes, expert tips, and lifestyle guides for the modern food
+          recipes, expert tips and lifestyle guides for the modern food
           enthusiast.
         </p>
       </div>
