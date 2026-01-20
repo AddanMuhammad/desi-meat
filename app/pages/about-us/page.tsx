@@ -1,4 +1,6 @@
+import { AboutUsApproach } from "@/app/components/about-us-approach";
 import { NavBar } from "@/app/components/navbar";
+import { Order } from "@/app/components/order";
 import Testimonials from "@/app/components/testimonials";
 import Footer from "@/app/components/ui/footer";
 import { PrimaryButton } from "@/app/components/ui/primary-button";
@@ -88,11 +90,12 @@ const AboutUs = () => {
               text="ORDER ONLINE"
               className="uppercase tracking-wider"
               gradientToWhite={true}
+              href="https://dhesimeat.cloudwaitress.com/"
             />
           </div>
         </div>
 
-        <div className="bg-black">
+        <div className="bg-black pt-15 pb-15 pr-7 pl-7">
           <div className="max-w-7xl   mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* LEFT IMAGE */}
             <div className="relative w-full h-120">
@@ -106,7 +109,7 @@ const AboutUs = () => {
             </div>
 
             {/* RIGHT CONTENT */}
-            <div className="h-120 overflow-hidden relative mt-10">
+            <div className="overflow-hidden relative p-10">
               {/* Badge */}
               <span className="inline-block mb-6 rounded-full bg-[#FFB9004D] px-5 py-2 text-xs font-semibold tracking-widest text-[#FFB900] border border-[#FFB9004D]">
                 OUR PHILOSOPHY
@@ -115,7 +118,7 @@ const AboutUs = () => {
               {/* Heading */}
               <h2 className="text-2xl lg:text-4xl font-bold leading-tight mb-6">
                 The Dhesi{" "}
-                <span className=" italic bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent">
+                <span className="italic bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent">
                   Difference
                 </span>
               </h2>
@@ -134,7 +137,7 @@ const AboutUs = () => {
                       <h4 className="mb-1 mt-2 font-semibold text-[#d4af37]">
                         {item.title}
                       </h4>
-                      <p className="text-sm text-gray-300 text-justify">
+                      <p className="text-sm text-gray-300 ">
                         {item.description}
                       </p>
                     </div>
@@ -145,7 +148,7 @@ const AboutUs = () => {
           </div>
         </div>
 
-        <div className="relative w-full h-[280px] sm:h-[350px] md:h-[420px] lg:h-[500px] overflow-hidden">
+        <div className="relative w-full h-70 sm:h-87.5 md:h-105 lg:h-125 overflow-hidden">
           {/* Background image */}
           <img
             src="/images/about-us2.png"
@@ -176,11 +179,12 @@ const AboutUs = () => {
                 text="ORDER ONLINE"
                 className="uppercase tracking-wider text-xs sm:text-sm"
                 gradientToWhite
+                href="https://dhesimeat.cloudwaitress.com/"
               />
             </div>
           </div>
         </div>
-
+        <AboutUsApproach />
         <Testimonials />
       </section>
 

@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-const Footer = () => {
+const Footer = ({ cl = "" }: { cl?: string }) => {
   return (
-    <footer className="bg-black text-white p-4 text-center">
+    <footer className={`${cl} bg-black text-white p-4 text-center`}>
       {" "}
       <div className="max-w-7xl flex flex-col justify-center items-center mx-auto pt-8">
         {" "}
