@@ -77,13 +77,14 @@ export default function HomePage() {
                 // onClick={}
                 className="uppercase tracking-wider mt-4"
                 gradientToWhite={true}
+                href="https://dhesimeat.cloudwaitress.com/"
               />
             </div>
           </div>
         </div>
       </div>
       <SeriesSelector />
-      
+
       <PerimumSeriesSelector />
       <BestSeller />
       <WhyChooseUs />

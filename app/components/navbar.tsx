@@ -37,7 +37,7 @@ export const NavBar = () => {
             About Us
           </Link>
 
-          <Link href="/blog" className={linkClasses("/blog")}>
+          <Link href="/pages/blog" className={linkClasses("/pages/blog")}>
             Blog
           </Link>
 
@@ -56,6 +56,7 @@ export const NavBar = () => {
         text="ORDER ONLINE"
         className="uppercase tracking-wider"
         gradientToWhite={true}
+        href="https://dhesimeat.cloudwaitress.com/"
       />
     </nav>
   );

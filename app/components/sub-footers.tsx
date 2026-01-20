@@ -30,12 +30,12 @@ const SubFooter = () => {
         .from(
           ".subfooter-desc",
           { y: 30, opacity: 0, duration: 0.7, ease: "power2.out" },
-          "-=0.5"
+          "-=0.5",
         )
         .from(
           ".subfooter-benefits-title",
           { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" },
-          "-=0.4"
+          "-=0.4",
         )
         .from(
           ".subfooter-benefit",
@@ -46,12 +46,12 @@ const SubFooter = () => {
             stagger: 0.15,
             ease: "power2.out",
           },
-          "-=0.3"
+          "-=0.3",
         )
         .from(
           ".subfooter-button",
           { y: 20, opacity: 0, duration: 0.6, ease: "power2.out" },
-          "-=0.3"
+          "-=0.3",
         );
     }, sectionRef);
 
@@ -112,6 +112,7 @@ const SubFooter = () => {
                 // onClick={}
                 className="uppercase tracking-wider"
                 gradientToWhite={true}
+                href="https://dhesimeat.cloudwaitress.com/"
               />
             </div>
           </div>
