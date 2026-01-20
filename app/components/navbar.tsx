@@ -13,6 +13,7 @@ export const NavBar = () => {
       : "text-xs md:text-sm text-gray-300 hover:text-white transition-colors";
 
   return (
+    <div>
     <nav className="relative z-10 flex items-center justify-between px-4 md:px-10 py-4">
       {/* Logo */}
       <img
@@ -41,6 +42,10 @@ export const NavBar = () => {
             Blog
           </Link>
 
+          <Link href="/pages/menu" className={linkClasses("/pages/menu")}>
+            Menu
+          </Link>
+
           <Link
             href="/pages/contact-us"
             className={linkClasses("/pages/contact-us")}
@@ -59,5 +64,7 @@ export const NavBar = () => {
         href="https://dhesimeat.cloudwaitress.com/"
       />
     </nav>
+    <div className="w-full border border-gray-500/30"></div>
+    </div>
   );
 };
