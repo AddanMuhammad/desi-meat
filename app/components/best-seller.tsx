@@ -46,8 +46,11 @@ export const BestSeller = () => {
   return (
     <div ref={sectionRef} className="mt-[120px] mx-[60px]">
       <div className="flex justify-around items-center mb-8">
-        <h2 className="bestseller-title text-3xl md:text-5xl font-bold leading-tight text-white">
-          Best <span className="italic text-[#B38934] font-light">Seller</span>
+        <h2 className="font-satoshi bestseller-title text-3xl md:text-5xl font-bold leading-tight text-white">
+          Best{" "}
+          <span className="font-clearface italic text-[#B38934] font-light">
+            Seller
+          </span>
         </h2>
       </div>
 

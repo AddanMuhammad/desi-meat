@@ -63,17 +63,17 @@ const WhyChooseUs = () => {
         .from(
           ".why-title",
           { y: 40, opacity: 0, duration: 0.8, ease: "power2.out" },
-          "-=0.6"
+          "-=0.6",
         )
         .from(
           ".why-desc",
           { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" },
-          "-=0.5"
+          "-=0.5",
         )
         .from(
           ".promise-block",
           { x: -50, opacity: 0, duration: 0.7, ease: "power2.out" },
-          "-=0.5"
+          "-=0.5",
         )
         .from(
           ".feature-item",
@@ -84,7 +84,7 @@ const WhyChooseUs = () => {
             stagger: 0.15,
             ease: "power2.out",
           },
-          "-=0.3"
+          "-=0.3",
         );
     }, sectionRef);
 
@@ -114,8 +114,9 @@ const WhyChooseUs = () => {
           ref={cardRef}
           className="rounded-3xl bg-black/60 backdrop-blur-xl w-3xl p-10 shadow-2xl border border-white/10"
         >
-          <h2 className="why-title mb-4 text-5xl font-bold text-white">
-            Why Choose <span className="text-[#d4af37] italic">Us?</span>
+          <h2 className="why-title mb-4 text-5xl font-bold text-white font-satoshi">
+            Why Choose{" "}
+            <span className="text-[#d4af37] italic font-clearface">Us?</span>
           </h2>
 
           <p className="why-desc mb-8 max-w-2xl text-base font-extralight text-gray-300/70">
