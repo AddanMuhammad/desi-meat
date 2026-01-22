@@ -64,15 +64,15 @@ const SubFooter = () => {
         {/* Background image behind navbar and content */}
         <img
           src="/images/subFooter.png"
-          className="absolute inset-0 w-full h-7xl object-cover -z-10"
+          className="absolute inset-0 w-full h-full object-cover -z-10"
         />
 
         <div className="relative z-10 flex flex-col h-full mt-15">
           {/* Text content */}
           <div className="relative z-10 max-w-3xl space-y-4 px-8 md:px-24">
-            <h1 className="subfooter-title text-3xl md:text-5xl font-bold leading-tight text-white">
+            <h1 className="font-satoshi subfooter-title text-3xl md:text-5xl font-bold leading-tight text-white">
               Elevate Your{" "}
-              <span className="italic text-[#d4a64a] font-light">
+              <span className="font-clearface italic text-[#d4a64a] font-light">
                 Wellness with Meat
               </span>
               <br />

@@ -111,9 +111,11 @@ export const SeriesSelector = () => {
   return (
     <div ref={sectionRef} className="mt-[120px] mx-[60px]">
       <div className="flex justify-between items-center mb-8">
-        <h2 className="series-title text-3xl md:text-5xl font-bold leading-tight text-white">
+        <h2 className="font-satoshi series-title text-3xl md:text-5xl font-bold leading-tight text-white">
           The Series{" "}
-          <span className="italic text-[#B38934] font-light">Selector</span>
+          <span className="font-clearface italic text-[#B38934] font-light">
+            Selector
+          </span>
         </h2>
         <p className="series-subtitle font-bold text-white">
           Desi Meat{" "}
