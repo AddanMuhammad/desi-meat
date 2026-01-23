@@ -13,7 +13,7 @@ export const NavBar = () => {
       : "text-xs md:text-sm text-gray-300 hover:text-white transition-colors";
 
   return (
-    <div>
+    <div className="hidden md:block">
     <nav className="relative z-10 flex items-center justify-between px-4 md:px-10 py-4">
       {/* Logo */}
       <img
@@ -26,7 +26,7 @@ export const NavBar = () => {
 
       {/* Centered pill navigation */}
       <div className="flex-1 flex justify-center">
-        <div className="flex items-center gap-8 rounded-full border border-[#3b3b3b] bg-gradient-to-r from-[#1e1e1e] to-[#2a2a2a] px-8 py-2 shadow-lg">
+        <div className="flex items-center gap-8 rounded-full border border-[#3b3b3b] bg-linear-to-r from-[#1e1e1e] to-[#2a2a2a] px-8 py-2 shadow-lg">
           <Link href="/" className={linkClasses("/")}>
             Home
           </Link>

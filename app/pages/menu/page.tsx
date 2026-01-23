@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { menuData } from "../../json-data/menu-data";
 import { NavBar } from "@/app/components/navbar";
 import Footer from "@/app/components/ui/footer";
+import { PrimaryButton } from "@/app/components/ui/primary-button";
 
 export default function MenuPage() {
     const [selectedCategoryId, setSelectedCategoryId] = useState<string>(menuData[0]?.id || '');
@@ -23,64 +24,14 @@ export default function MenuPage() {
         }
     }, [selectedCategoryId, selectedCategory, selectedTypeId]);
 
-    // Hover animations for menu item cards
-    useEffect(() => {
-        const hoverHandlers: Array<{ card: HTMLDivElement; enter: () => void; leave: () => void }> = [];
-        
-        cardRefs.current.forEach((card) => {
-            if (card) {
-                const textOverlay = card.querySelector('.menu-card-text-overlay') as HTMLDivElement;
-                
-                const handleMouseEnter = () => {
-                    gsap.to(card, {
-                        scale: 1.02,
-                        duration: 0.3,
-                        ease: "power2.out",
-                    });
-                    if (textOverlay) {
-                        gsap.to(textOverlay, {
-                            opacity: 1,
-                            duration: 0.3,
-                            ease: "power2.out",
-                        });
-                    }
-                };
-
-                const handleMouseLeave = () => {
-                    gsap.to(card, {
-                        scale: 1,
-                        duration: 0.3,
-                        ease: "power2.out",
-                    });
-                    if (textOverlay) {
-                        gsap.to(textOverlay, {
-                            opacity: 0,
-                            duration: 0.3,
-                            ease: "power2.out",
-                        });
-                    }
-                };
-
-                card.addEventListener("mouseenter", handleMouseEnter);
-                card.addEventListener("mouseleave", handleMouseLeave);
-                
-                hoverHandlers.push({ card, enter: handleMouseEnter, leave: handleMouseLeave });
-            }
-        });
-
-        return () => {
-            hoverHandlers.forEach(({ card, enter, leave }) => {
-                card.removeEventListener("mouseenter", enter);
-                card.removeEventListener("mouseleave", leave);
-            });
-        };
-    }, [selectedType]);
-
     if (!selectedCategory) {
         return <div className="p-8 text-white">No menu data available</div>;
     }
 
-    const currentItems = selectedType?.items || [];
+    const currentItems = selectedType?.items;
+    console.log(currentItems) 
+
+    currentItems ? console.log(currentItems.images) : ''
 
     return (
         <div>
@@ -150,47 +101,82 @@ export default function MenuPage() {
                             )}
 
                             {/* Menu Items Grid - 2 columns, 2 rows (4 items total) */}
-                            {currentItems.length > 0 && (
-                                <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-                                    {currentItems.map((item, index) => (
-                                        <div
-                                            key={item.id}
-                                            ref={(el) => { cardRefs.current[index] = el; }}
-                                            className="group relative aspect-square overflow-hidden rounded-2xl border border-[#2f2f2f] bg-[#191919]"
-                                        >
-                                            {/* Image - Always visible */}
-                                            <div className="absolute inset-0 p-4">
-                                                <img
-                                                    src={item.image_url}
-                                                    alt={item.name}
-                                                    className="h-full w-full rounded-2xl object-cover"
-                                                    onError={(e) => {
-                                                        // Fallback for missing images
-                                                        const target = e.target as HTMLImageElement;
-                                                        target.src = '/images/premium-meat.png';
-                                                    }}
-                                                />
-                                            </div>
-
-                                            {/* Text Overlay - Shown on hover */}
-                                            <div className="menu-card-text-overlay absolute inset-0 flex flex-col justify-end bg-linear-to-t from-black/90 via-black/70 to-transparent p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                                                <h3 className="mb-2 text-xl font-bold text-white">
-                                                    {item.name}
-                                                </h3>
-                                                <p className="text-sm text-gray-300">
-                                                    {item.description}
-                                                </p>
-                                            </div>
+                            {currentItems && (
+                            <div className="grid grid-cols-1 md:grid-cols-10 gap-4">
+                                {/* Main Card (1/3) */}
+                                <div
+                                    className="md:col-span-4 h-[420px] border border-[#2f2f2f] rounded-2xl
+                                                flex flex-col shadow-lg bg-[#1B1B1B] overflow-hidden"
+                                    >
+                                    {/* TOP CONTENT */}
+                                    <div className="p-3 flex flex-col gap-3 flex-1">
+                                        {/* Image */}
+                                        <div className="h-[220px] w-full overflow-hidden rounded-xl">
+                                            <img
+                                                src={currentItems.image_url}
+                                                alt={currentItems.name}
+                                                className="w-full h-full object-cover"
+                                            />
                                         </div>
-                                    ))}
+
+                                        <h3 className="text-lg md:text-xl font-extrabold text-white line-clamp-2">
+                                        {currentItems.name}
+                                        </h3>
+
+                                        <p className="text-sm text-gray-300 font-light line-clamp-3">
+                                        {currentItems.description}
+                                        </p>
+                                    </div>
+
+                                    {/* BOTTOM CTA */}
+                                   
+                                        <div className="flex justify-between items-center p-4">
+                                            <h1 className="text-2xl text-white">$ 15</h1>
+                                            <PrimaryButton
+                                                primaryColor="#d4a64a"
+                                                text="Order Online"
+                                                gradientToWhite
+                                                className="uppercase tracking-wider"
+                                                href="https://dhesimeat.cloudwaitress.com/"
+                                            />
+                                        </div>
+                                    </div>
+
+
+                                {/* Large Image (2/3) */}
+                                {currentItems.images?.[0] && (
+                                <div className="md:col-span-6 h-[420px] rounded-2xl overflow-hidden">
+                                    <img
+                                    src={currentItems.images[0]}
+                                    alt="featured"
+                                    className="w-full h-full object-cover"
+                                    />
                                 </div>
+                                )}
+
+                                {/* Bottom Images (50 / 50) */}
+                                {currentItems.images?.slice(1, 3).map((image, index) => (
+                                <div
+                                    key={index}
+                                    className="md:col-span-5 rounded-2xl overflow-hidden"
+                                >
+                                    <img
+                                    src={image}
+                                    alt={`gallery-${index}`}
+                                    className="w-full object-cover"
+                                    />
+                                </div>
+                                ))}
+                            </div>
                             )}
 
-                            {currentItems.length === 0 && (
+
+
+                            {!currentItems && (
                                 <div className="py-12 text-center text-gray-400">
                                     No items available for this selection
                                 </div>
-                            )}
+                            )} 
                         </div>
                     </div>
                 </div>

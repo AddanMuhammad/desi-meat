@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Work_Sans } from "next/font/google";
 import "./globals.css";
 import { NavBar } from "./components/navbar";
+import { MobileBottomBar } from "./components/mobile-bottombar";
 
 const workSans = Work_Sans({
   variable: "--font-work-sans",
@@ -33,7 +34,10 @@ export default function RootLayout({
       <body
         className={`${workSans.variable} ${workSans.variable} antialiased`}
       >
-        {children}
+        <div className="h-[calc(100dvh-56px)] lg:h-full overflow-auto">
+          {children}
+        </div>
+        <MobileBottomBar />
       </body>
     </html>
   );
