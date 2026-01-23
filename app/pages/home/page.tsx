@@ -11,6 +11,7 @@ import Testimonials from "@/app/components/testimonials";
 import { PrimaryButton } from "@/app/components/ui/primary-button";
 import WhyChooseUs from "@/app/components/why-choose-us";
 import gsap from "gsap";
+import { MobileBottomBar } from "@/app/components/mobile-bottombar";
 
 export default function HomePage() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -59,9 +60,9 @@ export default function HomePage() {
         <div className="relative z-10 flex h-full mt-32">
           {/* Text content */}
           <div className="relative z-10 max-w-3xl space-y-4 px-8 md:px-24">
-            <h1 className="hero-title text-3xl md:text-5xl font-bold leading-tight text-white">
+            <h1 className=" font-satoshi hero-title text-3xl md:text-5xl font-bold leading-tight text-white">
               Fresh • Marinated • <span>Lifestyle-</span>
-              <span className="italic text-[#d4a64a] font-light">
+              <span className="font-clearface italic text-[#d4a64a] font-light">
                 Focused Meats in Surrey, BC
               </span>
               <br />
