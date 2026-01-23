@@ -131,11 +131,11 @@ const ContactSection = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* LEFT CONTENT */}
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-              We’re Here to Listen,
+            <h2 className="font-satoshi text-3xl md:text-5xl font-bold leading-tight">
+              We’re Here to Listen.
               <br />
               Connect With{" "}
-              <span className="text-[#D4AF37] italic font-semibold">
+              <span className="font-clearface text-[#D4AF37] italic font-semibold">
                 Us Today
               </span>
             </h2>
@@ -157,9 +157,13 @@ const ContactSection = () => {
                   height={20}
                 />
                 <div>
-                  <p className="font-semibold">Phone</p>
+                  <p className="font-semibold text-base sm:text-lg md:text-lg">
+                    Phone
+                  </p>
                   <p className="text-gray-400">Call us today</p>
-                  <p className="text-white font-medium">+1 (555) 000-0000</p>
+                  <p className="text-white text-sm lg:text-base">
+                    +1 (555) 000-0000
+                  </p>
                 </div>
               </div>
 
@@ -172,7 +176,9 @@ const ContactSection = () => {
                   height={20}
                 />
                 <div>
-                  <p className="font-semibold">Location</p>
+                  <p className="font-semibold text-base sm:text-lg md:text-lg">
+                    Location
+                  </p>
                   <p className="text-gray-400">Reach out anytime</p>
                   <p className="text-white font-medium">
                     Fleetwood, Surrey, BC
