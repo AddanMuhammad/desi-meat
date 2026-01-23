@@ -50,16 +50,26 @@ export default function HomePage() {
   return (
     <div>
       <div ref={heroRef} className="relative w-full h-screen overflow-hidden">
-        {/* Background image behind navbar and content */}
-        <img
+        {/* Desktop Image */}
+          <img
           src="/images/main-steak.png"
-          className="absolute inset-0 w-full h-full object-cover -z-10"
+          className="hidden lg:block absolute inset-0 w-full h-full object-cover -z-10"
+        />
+
+        {/* Mobile Image */}
+        <img
+          src="/images/mob-homePage.svg"
+          className="block lg:hidden absolute inset-0 w-full h-full object-cover -z-10"
         />
 
         <NavBar />
-        <div className="relative z-10 flex h-full mt-32">
-          {/* Text content */}
-          <div className="relative z-10 max-w-3xl space-y-4 px-8 md:px-24">
+
+        {/* Content */}
+  
+          <div className="relative z-10 w-full flex flex-col
+            lg:justify-start lg:mt-30
+            justify-end pb-10 lg:pb-0
+            h-full max-w-3xl px-8 md:px-24">
             <h1 className=" font-satoshi hero-title text-3xl md:text-5xl font-bold leading-tight text-white">
               Fresh • Marinated • <span>Lifestyle-</span>
               <span className="font-clearface italic text-[#d4a64a] font-light">
@@ -68,7 +78,7 @@ export default function HomePage() {
               <br />
             </h1>
             <p className="hero-description text-sm md:text-base text-gray-200">
-              Your modern neighborhood meat studio. Choose from FIT, <br />
+              Your modern neighborhood meat studio. Choose from FIT, <br className="hidden sm:block" />
               BALANCE, or FEAST series.
             </p>
             <div className="hero-button">
@@ -82,7 +92,7 @@ export default function HomePage() {
               />
             </div>
           </div>
-        </div>
+    
       </div>
       <SeriesSelector />
 

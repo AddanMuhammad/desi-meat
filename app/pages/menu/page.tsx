@@ -36,6 +36,7 @@ export default function MenuPage() {
     return (
         <div>
             <NavBar />
+            <div className="border-t border-gray-500/90" />
             <h2 className="p-6 text-center text-3xl font-bold sm:text-4xl lg:text-5xl">
                 Our <span className="font-light italic text-amber-200">Menu</span>
             </h2>

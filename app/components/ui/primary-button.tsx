@@ -38,7 +38,14 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
     <button
       onClick={handleClick}
       style={buttonStyle}
-      className={`rounded-md px-3 py-3 text-xs md:text-sm font-semibold text-black shadow-md shadow-white cursor-pointer hover:brightness-110 transition-all duration-200 ${className}`}
+      className={`
+        rounded-md px-3 py-3 text-xs md:text-sm font-semibold text-black
+        shadow-md shadow-white cursor-pointer
+        transition-all duration-200 ease-out
+        hover:-translate-y-1 hover:shadow-lg hover:brightness-120
+        active:translate-y-0 active:shadow-md
+        ${className}
+      `}
     >
       {text}
     </button>
