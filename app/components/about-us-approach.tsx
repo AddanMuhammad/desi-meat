@@ -105,9 +105,11 @@ export const AboutUsApproach = () => {
   return (
     <div ref={sectionRef} className="mt-[120px] mx-[60px]">
       <div className="flex justify-around items-center mb-8">
-        <h2 className="order-title text-3xl md:text-5xl font-bold leading-tight text-white">
+        <h2 className="font-satoshi order-title text-3xl md:text-5xl font-bold leading-tight text-white">
           Our Three-Pillar Approach{" "}
-          <span className="italic text-[#B38934] font-light">Approach</span>
+          <span className="font-clearface italic text-[#B38934] font-light">
+            Approach
+          </span>
         </h2>
       </div>
 
@@ -124,7 +126,7 @@ export const AboutUsApproach = () => {
             style={{ opacity: 1 }}
           >
             <img src={card.icon_url} alt={card.title} className="" />
-            <h3 className="text-lg md:text-xl font-extrabold text-white">
+            <h3 className="text-lg md:text-xl font-bold text-white">
               {card.title} <br />
             </h3>
             <p className="text-md text-gray-300 font-light text-center">
