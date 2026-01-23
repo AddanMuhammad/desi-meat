@@ -200,8 +200,8 @@ export const PerimumSeriesSelector = () => {
                     <img
                       src={card.img_url}
                       alt={card.title}
-                      className="w-12 h-12 object-contain shrink-0"
-                      style={{ width: "48px", height: "48px" }}
+                      className="w-8 h-8 object-contain"
+        
                     />
 
                     {/* Title */}
@@ -245,7 +245,7 @@ export const PerimumSeriesSelector = () => {
         <img
           src="/images/premium-meat.png"
           alt=""
-          className="premium-image h-[600px] w-1/2"
+          className="premium-image h-[540px] object-cover"
         />
       </div>
     </div>

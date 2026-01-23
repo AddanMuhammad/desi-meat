@@ -16,13 +16,16 @@ export const NavBar = () => {
     <div className="hidden md:block">
     <nav className="relative z-10 flex items-center justify-between px-4 md:px-10 py-4">
       {/* Logo */}
-      <img
-        src="/images/desi-meat-logo.png"
-        alt="Desi Meat Logo"
-        width={70}
-        height={70}
-        className="object-contain"
-      />
+      <Link href={'/'}>
+        <img
+          src="/images/desi-meat-logo.png"
+          alt="Dhesi Meat Logo"
+          width={70}
+          height={70}
+          className="object-contain"
+        />
+      </Link>
+      
 
       {/* Centered pill navigation */}
       <div className="flex-1 flex justify-center">
@@ -64,7 +67,7 @@ export const NavBar = () => {
         href="https://dhesimeat.cloudwaitress.com/"
       />
     </nav>
-    <div className="w-full border border-gray-500/30"></div>
+    
     </div>
   );
 };
