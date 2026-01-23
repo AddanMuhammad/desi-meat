@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Work_Sans } from "next/font/google";
 import "./globals.css";
-import { NavBar } from "./components/navbar";
+import { satoshi, itcClearface } from "./font";
 import { MobileBottomBar } from "./components/mobile-bottombar";
 
 const workSans = Work_Sans({
   variable: "--font-work-sans",
   subsets: ["latin"],
-})
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +32,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${workSans.variable} ${workSans.variable} antialiased`}
+        className={`
+          ${satoshi.variable}
+          ${itcClearface.variable}
+          ${workSans.variable}
+        `}
       >
         <div className="h-[calc(100dvh-56px)] lg:h-full overflow-auto">
           {children}
