@@ -38,7 +38,7 @@ export default function RootLayout({
           ${workSans.variable}
         `}
       >
-        <div className="h-[calc(100dvh-56px)] lg:h-full overflow-auto">
+        <div className="min-h-dvh pb-[18px]">
           {children}
         </div>
         <MobileBottomBar />
