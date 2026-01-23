@@ -33,7 +33,7 @@ const Footer = ({ cl = "" }: { cl?: string }) => {
           <div className="order-1 md:order-2 flex flex-col items-center text-center">
             <Image
               src="/images/desi-meat-logo.png"
-              alt="Desi Meat Logo"
+              alt="Dhesi Meat Logo"
               width={110}
               height={110}
               className="mb-6"

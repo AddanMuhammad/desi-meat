@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export const BestSeller = () => {
+  const cardRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -43,6 +44,29 @@ export const BestSeller = () => {
     return () => ctx.revert();
   }, []);
 
+
+  const handleHoverIn = () => {
+    if (cardRef.current) {
+      gsap.to(cardRef.current, {
+        y: -8,      // lift up
+        scale: 1.02, // subtle scale
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    }
+  };
+
+  const handleHoverOut = () => {
+    if (cardRef.current) {
+      gsap.to(cardRef.current, {
+        y: 0,
+        scale: 1,
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    }
+  };
+
   return (
     <div ref={sectionRef} className="mt-[120px] mx-[60px]">
       <div className="flex justify-around items-center mb-8">
@@ -56,11 +80,41 @@ export const BestSeller = () => {
 
       {/* Cards grid - 3 per row */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-42">
-        {bestSellerData.map((card, index) => (
+        {bestSellerData.map((card, index) => {
+            const cardRef = useRef<HTMLDivElement>(null); // create a separate ref per card
+
+            const handleHoverIn = () => {
+              if (cardRef.current) {
+                gsap.to(cardRef.current, {
+                  y: -8,
+                  scale: 1.02,
+                  duration: 0.3,
+                  ease: "power2.out",
+                  boxShadow: "0px 12px 20px rgba(255,255,255,0.2)"
+                });
+              }
+            };
+
+            const handleHoverOut = () => {
+              if (cardRef.current) {
+                gsap.to(cardRef.current, {
+                  y: 0,
+                  scale: 1,
+                  duration: 0.3,
+                  boxShadow: "0px 4px 8px rgba(0,0,0,0.3)",
+                  ease: "power2.out",
+                });
+              }
+            };
+
+            return (
           <div
             key={index}
+            ref={cardRef}
             className="bestseller-card border border-[#2f2f2f] rounded-2xl pt-2 pl-4 pr-4 flex flex-col justify-between shadow-lg
-                         h-full bg-[#1B1B1B]"
+                         h-full bg-[#1B1B1B] cursor-pointer"
+            onMouseEnter={handleHoverIn}
+            onMouseLeave={handleHoverOut}
           >
             <img src={card.img_url} alt={card.title} className="h-[210px]" />
 
@@ -83,7 +137,8 @@ export const BestSeller = () => {
               </div>
             </div>
           </div>
-        ))}
+        );
+      })}
       </div>
     </div>
   );
