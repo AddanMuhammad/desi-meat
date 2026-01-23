@@ -11,6 +11,7 @@ import Testimonials from "@/app/components/testimonials";
 import { PrimaryButton } from "@/app/components/ui/primary-button";
 import WhyChooseUs from "@/app/components/why-choose-us";
 import gsap from "gsap";
+import { MobileBottomBar } from "@/app/components/mobile-bottombar";
 
 export default function HomePage() {
   const heroRef = useRef<HTMLDivElement>(null);
