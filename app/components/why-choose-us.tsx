@@ -40,17 +40,12 @@ const WhyChooseUs = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Timeline for scroll-triggered animations
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 75%", // when top of section hits 75% of viewport
-          end: "bottom 25%", // optional, for leaving animation
-          toggleActions: "play reverse play reverse", // triggers every time entering/leaving
-          // play = scroll into view
-          // reverse = scroll out of view
-          // play = scroll into view again
-          // reverse = scroll out again
+          start: "top 75%",
+          end: "bottom 25%",
+          toggleActions: "play reverse play reverse",
         },
       });
 
@@ -94,7 +89,7 @@ const WhyChooseUs = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-black py-5 overflow-hidden"
+      className="relative w-full bg-black py-7 md:py-13 overflow-hidden"
     >
       {/* Background Image */}
       <div className="absolute inset-0">
@@ -102,49 +97,62 @@ const WhyChooseUs = () => {
           src="/images/why-choose-us.png"
           alt="Fresh Meat"
           fill
-          className="object-cover"
+          className="object-cover hidden lg:block"
           priority
         />
-        <div className="absolute inset-0 bg-black/40" />
+        <Image
+          src="/images/why-choose-us2.png"
+          alt="Fresh Meat"
+          fill
+          className="object-cover lg:hidden"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/20" />
       </div>
 
       {/* Content */}
-      <div className="flex justify-end relative z-10 h-full w-full px-5 md:px-10">
+      <div className="relative z-10 flex justify-center lg:justify-end px-4 sm:px-6 md:px-10 lg:px-16">
         <div
           ref={cardRef}
-          className="rounded-3xl bg-black/60 backdrop-blur-xl w-3xl p-10 shadow-2xl border border-white/10"
+          className="rounded-3xl bg-black/60 backdrop-blur-xl w-full max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl p-6 sm:p-8 md:p-10 shadow-2xl border border-white/10"
         >
-          <h2 className="why-title mb-4 text-5xl font-bold text-white font-satoshi">
+          <h2 className="why-title mb-4 text-3xl sm:text-4xl md:text-5xl font-bold text-white font-satoshi">
             Why Choose{" "}
             <span className="text-[#d4af37] italic font-clearface">Us?</span>
           </h2>
 
-          <p className="why-desc mb-8 max-w-2xl text-base font-extralight text-gray-300/70">
+          <p className="why-desc mb-8 max-w-full text-sm sm:text-base md:text-lg font-extralight text-gray-300/70">
             Freshly prepared chicken, clean marinades, and custom cuts you can
             trust—every single day.
           </p>
 
-          <div className="promise-block mb-8 gap-4">
-            <p className="text-base font-semibold text-white">
+          <div className="promise-block mb-8 gap-2 sm:gap-4">
+            <p className="text-sm sm:text-base font-semibold text-white">
               WHAT WE PROMISE:
             </p>
-            <div className="flex-1 border-t-2 border-dotted border-gray-300/70 mt-2" />
+            <div className="flex-1 border-t-2 border-dotted border-gray-300/70 mt-1 sm:mt-2" />
           </div>
 
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
             {features.map((item) => (
-              <div key={item.title} className="feature-item">
+              <div
+                key={item.title}
+                className="feature-item flex items-start gap-3 sm:gap-4"
+              >
                 <Image
                   src={item.icon}
                   alt={item.title}
                   width={30}
                   height={30}
                 />
+
                 <div>
-                  <h4 className="mb-1 mt-2 font-semibold text-[#d4af37]">
+                  <h4 className="mb-1 mt-1 font-semibold text-[#d4af37] text-sm sm:text-base">
                     {item.title}
                   </h4>
-                  <p className="text-sm text-gray-300">{item.description}</p>
+                  <p className="text-xs sm:text-sm text-gray-300">
+                    {item.description}
+                  </p>
                 </div>
               </div>
             ))}

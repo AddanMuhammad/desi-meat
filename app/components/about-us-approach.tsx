@@ -5,6 +5,7 @@ import { PrimaryButton } from "@/app/components/ui/primary-button";
 import { AboutUsApproachCardData } from "../json-data/about-us-approach";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { YellowGlow } from "./ui/yellow-glow";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -51,7 +52,6 @@ export const AboutUsApproach = () => {
     return () => ctx.revert();
   }, []);
 
-  // Hover animations for cards - separate effect to ensure refs are populated
   useEffect(() => {
     const hoverHandlers: Array<{
       card: HTMLDivElement;
@@ -103,33 +103,59 @@ export const AboutUsApproach = () => {
   }, [AboutUsApproachCardData]);
 
   return (
-    <div ref={sectionRef} className="mt-[120px] mx-[60px]">
-      <div className="flex justify-around items-center mb-8">
-        <h2 className="font-satoshi order-title text-3xl md:text-5xl font-bold leading-tight text-white">
-          Our Three-Pillar Approach{" "}
+    <div
+      ref={sectionRef}
+      className="relative mt-20 lg:mt-30 lg:mb-30  px-4 sm:px-6 md:px-12 lg:px-24 xl:px-32 2xl:px-48"
+    >
+      <YellowGlow
+        className="
+        top-[-20%] 
+            md:top-[-15%] 
+            lg:top-[-60%] 
+            left-2 -translate-x-1/2  
+            w-[480px] h-[480px]
+            
+            md:w-[520px] md:h-[520px]
+            lg:w-[520px] lg:h-[720px]
+            
+            z-0
+          "
+      />
+      <div className="flex justify-center items-center mb-8">
+        <h2 className="order-title font-satoshi text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-white text-center">
+          Our Three-Pillar{" "}
           <span className="font-clearface italic text-[#B38934] font-light">
             Approach
           </span>
         </h2>
       </div>
 
-      {/* Cards grid - 3 per row */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-42">
+      <div className="text-center mb-16">
+        <p className="max-w-3xl mx-auto mt-6 text-gray-300 text-sm lg:hidden">
+          Discover how simple it is to get the best products delivered straight
+          to your door. From choosing to receiving, we make the entire process
+          seamless.
+        </p>
+      </div>
+      {/* Responsive Cards Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 gap-6 mb-16">
         {AboutUsApproachCardData.map((card, index) => (
           <div
             key={index}
             ref={(el) => {
               cardRefs.current[index] = el;
             }}
-            className="order-card border border-[#2f2f2f] rounded-2xl p-8 flex flex-col justify-between items-center shadow-lg
-                         h-full bg-linear-to-r from-[#B78E39]/20 to-[#161616] gap-4 cursor-pointer transition-all"
-            style={{ opacity: 1 }}
+            className="order-card border border-[#2f2f2f] rounded-2xl p-6 sm:p-8 flex flex-col justify-between items-center shadow-lg h-full bg-gradient-to-r from-[#B78E39]/20 to-[#161616] gap-4 cursor-pointer transition-all"
           >
-            <img src={card.icon_url} alt={card.title} className="" />
-            <h3 className="text-lg md:text-xl font-bold text-white">
-              {card.title} <br />
+            <img
+              src={card.icon_url}
+              alt={card.title}
+              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
+            />
+            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white text-center">
+              {card.title}
             </h3>
-            <p className="text-md text-gray-300 font-light text-center">
+            <p className="text-sm sm:text-md md:text-lg text-gray-300 font-light text-center">
               {card.description}
             </p>
           </div>
