@@ -190,7 +190,7 @@ const Testimonials = () => {
             {"☆".repeat(5 - activeReview.rating)}
           </div>
 
-          <p className="text-xl md:text-2xl italic text-gray-200 mb-4">
+          <p className="text-xl md:text-2xl italic h-35 lg:h-20  text-white mb-4">
             “
             {activeReview.quote.length > 150
               ? activeReview.quote.slice(0, 140) + "..."
@@ -213,13 +213,13 @@ const Testimonials = () => {
         <div className="testimonial-controls flex justify-center gap-4 mt-7">
           <button
             onClick={goPrev}
-            className="w-10 h-10 rounded-full border border-black hover:bg-black hover:text-white"
+            className="w-10 h-10 rounded-full border border-black hover:bg-black hover:text-white cursor-pointer"
           >
             ←
           </button>
           <button
             onClick={goNext}
-            className="w-10 h-10 rounded-full border border-black hover:bg-black hover:text-white"
+            className="w-10 h-10 rounded-full border border-black hover:bg-black hover:text-white cursor-pointer"
           >
             →
           </button>

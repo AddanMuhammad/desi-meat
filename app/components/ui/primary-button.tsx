@@ -39,7 +39,7 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
       onClick={handleClick}
       style={buttonStyle}
       className={`
-        rounded-md px-3 py-3 text-xs md:text-sm font-semibold text-black
+        rounded-md px-2.5 py-2.5 text-xs md:text-sm font-semibold text-black
         shadow-md shadow-white cursor-pointer
         transition-all duration-200 ease-out
         hover:-translate-y-1 hover:shadow-lg hover:brightness-120

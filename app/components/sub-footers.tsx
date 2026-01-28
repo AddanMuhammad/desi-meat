@@ -60,11 +60,15 @@ const SubFooter = () => {
 
   return (
     <section ref={sectionRef}>
-      <div className="relative w-full h-screen overflow-hidden">
+      <div className="relative w-full h-full overflow-hidden">
         {/* Background image behind navbar and content */}
         <img
           src="/images/subFooter.png"
           className="absolute inset-0 w-full h-full object-cover -z-10"
+        />
+        <img
+          src="/images/subFooter2.png"
+          className="absolute inset-0 w-full h-full object-cover -z-10 lg:hidden"
         />
 
         <div className="relative z-10 flex flex-col h-full mt-15">
@@ -83,22 +87,22 @@ const SubFooter = () => {
             </p>
           </div>
 
-          <div className="relative z-10 max-w-3xl space-y-4 px-8 md:px-24 mt-15">
+          <div className="relative z-10 max-w-3xl space-y-4 px-8 md:px-24 mt-15 mb-10 lg:mb-20">
             <p className="subfooter-benefits-title text-sm md:text-2xl font-bold leading-tight text-white">
               BENEFITS OF A SUBSCRIPTION
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-              <div className="subfooter-benefit flex justify-center items-center gap-3">
+              <div className="subfooter-benefit flex  items-center gap-3">
                 <img src="/icons/subFooter1.svg" alt="" />
                 <p className="text-gray-200 text-sm">Freshly cut after order</p>
               </div>
-              <div className="subfooter-benefit flex justify-center items-center gap-3">
+              <div className="subfooter-benefit flex  items-center gap-3">
                 <img src="/icons/subFooter2.svg" alt="" />
                 <p className="text-gray-200 text-sm">
                   Wide variety quality meats
                 </p>
               </div>
-              <div className="subfooter-benefit flex justify-center items-center gap-3">
+              <div className="subfooter-benefit flex  items-center gap-3">
                 <img src="/icons/subFooter2.svg" alt="" />
                 <p className="text-gray-200 text-sm">
                   Real-time freshness tracking

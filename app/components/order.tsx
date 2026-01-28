@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { orderCardData } from "../json-data/order";
+import { YellowGlow } from "./ui/yellow-glow";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,9 +26,9 @@ export const Order = () => {
     gsap.set(bagRef.current, { yPercent: 120, opacity: 0 });
 
     // --- Responsive animation ---
-    const mm = gsap.matchMedia(); // create instance
+    const mm = gsap.matchMedia();
 
-    mm.add("(min-width: 768px)", () => {
+    mm.add("(min-width: 1024px)", () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -39,17 +40,30 @@ export const Order = () => {
         },
       });
 
+      // Animate cards spreading out
       cards.forEach((card, i) => {
         const offset = (i - midIndex) * 110;
         tl.to(card, { xPercent: -offset, ease: "power1.out" }, 0);
       });
 
-      tl.to(gridRef.current, { yPercent: 60, ease: "power1.out" }, 0)
+      // First grid animation (current)
+      tl.to(gridRef.current, { yPercent: 0, ease: "power1.out" }, 0)
+
+        // --- NEW: move grid down slightly before showing bag ---
+        .to(
+          gridRef.current,
+          { yPercent: 40, ease: "power1.inOut" }, // move grid down
+          0.3, // start after a short delay from previous
+        )
+
+        // Bag animation
         .to(
           bagRef.current,
           { yPercent: 0, opacity: 1, ease: "power2.out" },
           0.4,
         )
+
+        // Optional: fade out and shrink grid
         .to(
           gridRef.current,
           { opacity: 0, scale: 0.95, ease: "power2.out" },
@@ -62,7 +76,7 @@ export const Order = () => {
     });
 
     return () => {
-      mm.revert(); // cleanup matchMedia
+      mm.revert();
     };
   }, []);
 
@@ -120,22 +134,40 @@ export const Order = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen px-6 md:px-16 flex flex-col justify-center"
+      className="relative min-h-screen md:min-h-full lg:min-h-screen px-6 md:px-16 flex flex-col justify-center mt-20 mb-20  lg:mb-10"
     >
+      {/* Yellow ambient light */}
+      <YellowGlow
+        className="
+      top-[-10%] left-1 -translate-x-1/2  
+      w-[480px] h-[480px]
+      
+      md:w-[520px] md:h-[520px]
+      lg:w-[520px] lg:h-[720px]
+      
+      z-0
+    "
+      />
       {/* Heading */}
       <div className="text-center mb-16">
-        <h2 className="order-title text-4xl md:text-6xl font-bold text-white">
-          How To <span className="italic text-[#B38934] font-light">Order</span>
+        <h2 className="font-satoshi order-title text-4xl md:text-6xl font-bold text-white">
+          How To{" "}
+          <span className="font-clearface italic text-[#B38934] font-light">
+            Order
+          </span>
         </h2>
-        <p className="max-w-3xl mx-auto mt-6 text-gray-300">
-          Follow these simple steps to place your order.
+
+        <p className="max-w-3xl mx-auto mt-6 text-gray-300 text-sm lg:hidden">
+          Discover how simple it is to get the best products delivered straight
+          to your door. From choosing to receiving, we make the entire process
+          seamless.
         </p>
       </div>
 
       {/* Cards Grid */}
       <div
         ref={gridRef}
-        className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10"
       >
         {orderCardData.map((card, index) => (
           <div
@@ -144,13 +176,13 @@ export const Order = () => {
               cardRefs.current[index] = el;
             }} // ✅ ref callback returns void
             className="order-card border border-[#2f2f2f] rounded-2xl p-8 flex flex-col justify-between items-center shadow-lg
-                       h-full bg-gradient-to-br from-[#B78E39]/20 to-[#161616] gap-4 cursor-pointer will-change-transform"
+                       h-full bg-linear-to-br from-[#B78E39]/20 to-[#161616] gap-4 cursor-pointer will-change-transform"
           >
-            <img src={card.icon_url} alt={card.title} className="" />
-            <h3 className="text-lg md:text-xl font-extrabold text-white">
+            <img src={card.icon_url} alt={card.title} />
+            <h3 className="text-lg md:text-lg font-bold text-white">
               {card.title}
             </h3>
-            <p className="text-md text-gray-300 font-light text-center">
+            <p className="text-sm text-gray-300 font-light text-center">
               {card.description}
             </p>
           </div>

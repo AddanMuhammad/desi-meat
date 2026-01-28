@@ -58,7 +58,7 @@ const AboutUs = () => {
         </div>
 
         {/* Content */}
-        <div className="max-w-xl mx-auto lg:mx-0">
+        <div className="max-w-xl mx-auto lg:mx-0 mb-5">
           <span className="inline-block mb-6 rounded-full bg-[#FFB9004D] px-5 py-2 text-xs font-semibold tracking-widest text-[#FFB900] border border-[#FFB9004D]">
             OUR STORY
           </span>
@@ -150,7 +150,7 @@ const AboutUs = () => {
       </section>
 
       {/* ================= TEAM SECTION ================= */}
-      <section className="relative w-full min-h-[60vh] sm:min-h-[70vh] lg:min-h-[80vh] flex items-end lg:items-center pb-5">
+      <section className="relative w-full min-h-[60vh] sm:min-h-[70vh] lg:min-h-[80vh] flex items-end lg:items-center pb-8">
         <img
           src="/images/about-us2.png"
           alt="Team"

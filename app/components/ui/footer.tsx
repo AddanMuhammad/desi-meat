@@ -4,9 +4,9 @@ import Link from "next/link";
 const Footer = ({ cl = "" }: { cl?: string }) => {
   return (
     <footer className={`${cl} bg-black text-white`}>
-      <div className="max-w-6xl mx-auto px-6 py-14">
+      <div className="max-w-6xl mx-auto px-6 py-20 lg:py-8 ">
         {/* GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] gap-6 lg:gap-12 items-center">
           {/* LEFT – QUICK LINKS */}
           <div className="order-2 md:order-1 text-left">
             <h4 className="font-semibold mb-5">Quick Links</h4>
@@ -44,13 +44,13 @@ const Footer = ({ cl = "" }: { cl?: string }) => {
               delivered to your door for a delicious experience every time.
             </p>
 
-            <div className="flex items-center bg-white rounded-full w-full max-w-md overflow-hidden mb-6">
+            <div className="flex items-center bg-white rounded-full w-full lg:max-w-md overflow-hidden mb-6">
               <input
                 type="email"
                 placeholder="Enter your email"
                 className="flex-1 px-5 py-3 text-black outline-none"
               />
-              <button className="bg-[#c9a24d] text-black font-semibold px-6 py-3 rounded-full hover:bg-[#b8923f] transition">
+              <button className="bg-linear-to-br from-[#cfa44a] to-[#e6c36a] text-black font-semibold mr-1.25 px-2 lg:px-4 py-2 rounded-full hover:bg-[#b8923f] transition">
                 Sign up
               </button>
             </div>
@@ -97,7 +97,7 @@ const Footer = ({ cl = "" }: { cl?: string }) => {
         </div>
 
         {/* COPYRIGHT */}
-        <div className="mt-14 text-center text-xs text-gray-500">
+        <div className="mt-8 lg:mt-14 text-center text-xs text-gray-500">
           © 2025 Dhesi Meat. All rights reserved. Reproduction without consent
           is prohibited.
         </div>
