@@ -130,7 +130,7 @@ const ContactSection = () => {
       <section className="w-full bg-black text-white py-20 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* LEFT CONTENT */}
-          <div>
+          <div className="md:text-center lg:text-start">
             <h2 className="font-satoshi text-3xl md:text-5xl font-bold leading-tight">
               We’re Here to Listen.
               <br />
@@ -140,14 +140,14 @@ const ContactSection = () => {
               </span>
             </h2>
 
-            <p className="text-gray-400 mt-6 max-w-md">
+            <p className="text-gray-400  mt-6 max-w-md md:mx-auto lg:mx-0">
               Have a question or need assistance? Our team is here to listen and
               support you. Reach out to us today, and we’ll get back to you as
               soon as possible.
             </p>
 
             {/* CONTACT INFO */}
-            <div className="flex justify-between items-center mt-10 max-w-md">
+            <div className="flex justify-between md:justify-around lg:justify-between  items-center mt-10 lg:max-w-md">
               <div className="flex items-start gap-4">
                 {/* <Phone className="text-[#D4AF37]" /> */}
                 <Image
@@ -157,12 +157,12 @@ const ContactSection = () => {
                   height={20}
                 />
                 <div>
-                  <p className="font-semibold text-base sm:text-lg md:text-lg">
+                  <p className="font-semibold text-start text-base sm:text-lg md:text-lg">
                     Phone
                   </p>
-                  <p className="text-gray-400">Call us today</p>
-                  <p className="text-white text-sm lg:text-base">
-                    +1 (555) 000-0000
+                  <p className="text-gray-400 text-start">Call us today</p>
+                  <p className="text-white text-start text-xs sm:text-sm md:text-lg">
+                    +1(555)000-0000
                   </p>
                 </div>
               </div>
@@ -176,11 +176,11 @@ const ContactSection = () => {
                   height={20}
                 />
                 <div>
-                  <p className="font-semibold text-base sm:text-lg md:text-lg">
+                  <p className="font-semibold text-start text-base sm:text-lg md:text-lg">
                     Location
                   </p>
-                  <p className="text-gray-400">Reach out anytime</p>
-                  <p className="text-white font-medium">
+                  <p className="text-gray-400 text-start">Reach out anytime</p>
+                  <p className="text-white text-start text-xs sm:text-sm  md:text-lg">
                     Fleetwood, Surrey, BC
                   </p>
                 </div>

@@ -19,7 +19,7 @@ const Blog = () => {
 
         <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-6">
           The Dhesi{" "}
-          <span className="italic bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent">
+          <span className="italic bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent p-0.5">
             Kitchen
           </span>
         </h2>
@@ -56,7 +56,7 @@ const Blog = () => {
             </div>
 
             {/* CONTENT */}
-            <div className="flex flex-col items-start">
+            <div className="flex flex-col  items-start md:items-start">
               <span className="mb-6 rounded-full bg-[#FFB9004D] px-5 py-2 text-xs font-semibold tracking-widest text-[#FFB900] border border-[#FFB9004D]">
                 • FIT Series
               </span>
@@ -65,7 +65,7 @@ const Blog = () => {
                 Eating Clean Without Losing Flavor
               </h2>
 
-              <p className="text-gray-300 text-sm sm:text-base mb-8 max-w-lg">
+              <p className="text-gray-300 text-sm sm:text-base mb-8 max-w-lg md:max-w-full">
                 Struggling to balance your fitness goals with delicious food?
                 Discover how our FIT Series uses lean cuts, light marinades, and
                 smart preparation to deliver high-protein meals that are
