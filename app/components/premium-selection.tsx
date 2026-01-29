@@ -151,7 +151,7 @@ export const PerimumSeriesSelector = () => {
                   onClick={() => setSelectedIndex(index)}
                   className={`p-4 sm:p-5 rounded-lg cursor-pointer transition-colors ${
                     isSelected
-                      ? "bg-gradient-to-r from-[#B38934] to-[#e6ca79]"
+                      ? "bg-linear-to-r from-[#B38934] to-[#e6ca79]"
                       : ""
                   }`}
                 >

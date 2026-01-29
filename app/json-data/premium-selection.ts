@@ -3,7 +3,7 @@ export const premiumSelection = [
     title: "CHICKEN",
     img_url: "/icons/chicken.svg",
     description:
-      "A wide selection of fresh and marinated chicken cuts—including organic options, wings, and ready-to-eat kebabs—priced per pound or piece, perfect for everything from everyday cooking to flavorful, spice-forward dishes.",
+      "A wide selection of fresh and marinated chicken cuts—including organic options, wings, perfect for everything from everyday cooking to flavorful, spice-forward dishes.",
   },
   {
     title: "LAMB",
