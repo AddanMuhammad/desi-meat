@@ -15,7 +15,7 @@ const Footer = ({ cl = "" }: { cl?: string }) => {
                 { label: "About Us", href: "/pages/about-us" },
                 { label: "Menu", href: "/menu" },
                 { label: "Contact Us", href: "/pages/contact-us" },
-                { label: "Blog Us", href: "/blog" },
+                // { label: "Blog Us", href: "/blog" },
               ].map((item, i) => (
                 <li key={i}>
                   <Link

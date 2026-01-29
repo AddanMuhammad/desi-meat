@@ -273,7 +273,7 @@ export default function MenuPage() {
                   {/* MAIN CARD */}
                   <div className="lg:col-span-4 md:col-span-2 flex flex-col rounded-2xl border border-[#2f2f2f] bg-[#1B1B1B] overflow-hidden">
                     <div className="p-4 flex flex-col gap-3 flex-1">
-                      <div className="aspect-[4/3] rounded-xl overflow-hidden relative">
+                      <div className="aspect-4/3 rounded-xl overflow-hidden relative">
                         {/* IMAGE */}
                         <img
                           src={currentItems.image_url}
@@ -319,7 +319,7 @@ export default function MenuPage() {
 
                   {/* FEATURE IMAGE */}
                   {currentItems.images?.[0] && (
-                    <div className="sm:col-span-2 lg:col-span-6 rounded-2xl overflow-hidden border border-[#2f2f2f] bg-[#1B1B1B] p-3 aspect-[16/9] lg:aspect-auto">
+                    <div className="sm:col-span-2 lg:col-span-6 rounded-2xl overflow-hidden border border-[#2f2f2f] bg-[#1B1B1B] p-3 aspect-video lg:aspect-auto">
                       <img
                         src={currentItems.images[0]}
                         alt="featured"
@@ -332,7 +332,7 @@ export default function MenuPage() {
                   {currentItems.images?.slice(1, 3).map((img, index) => (
                     <div
                       key={index}
-                      className="rounded-2xl overflow-hidden border border-[#2f2f2f] bg-[#1B1B1B] p-3 aspect-[4/3] sm:col-span-1 lg:col-span-5"
+                      className="rounded-2xl overflow-hidden border border-[#2f2f2f] bg-[#1B1B1B] p-3 aspect-4/3 sm:col-span-1 lg:col-span-5"
                     >
                       <img
                         src={img}

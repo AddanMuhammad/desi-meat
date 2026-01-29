@@ -2,7 +2,7 @@ import { NavBar } from "@/app/components/navbar";
 import Footer from "@/app/components/ui/footer";
 import { PrimaryButton } from "@/app/components/ui/primary-button";
 import Image from "next/image";
-import { articles } from "./../../json-data/articles-data";
+import { articles } from "../../json-data/articles-data";
 import ArticleCard from "./../../components/ui/article-card";
 
 const Blog = () => {
@@ -46,7 +46,7 @@ const Blog = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-white/5 rounded-2xl border border-gray-700/50 p-6 sm:p-8">
             {/* IMAGE */}
-            <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3]">
+            <div className="relative w-full aspect-4/3 sm:aspect-16/10 lg:aspect-4/3">
               <img
                 src="/images/blog1.png"
                 alt="Chef"
