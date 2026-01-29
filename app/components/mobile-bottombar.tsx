@@ -39,7 +39,7 @@ export const MobileBottomBar = () => {
           About
         </Link>
 
-        <Link
+        {/* <Link
           href="/pages/blog"
           aria-label="Blog"
           className={itemClass("/pages/blog")}
@@ -48,7 +48,7 @@ export const MobileBottomBar = () => {
             <img src="/icons/blog.svg" alt="Blog" className={iconClass} />
           </div>
           Blog
-        </Link>
+        </Link> */}
 
         <Link
           href="/pages/menu"

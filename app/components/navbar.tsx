@@ -40,9 +40,9 @@ export const NavBar = () => {
               About Us
             </Link>
 
-            <Link href="/pages/blog" className={linkClasses("/pages/blog")}>
+            {/* <Link href="/pages/blog" className={linkClasses("/pages/blog")}>
               Blog
-            </Link>
+            </Link> */}
 
             <Link href="/pages/menu" className={linkClasses("/pages/menu")}>
               Menu
