@@ -13,7 +13,7 @@ const Footer = ({ cl = "" }: { cl?: string }) => {
             <ul className="space-y-3 text-sm">
               {[
                 { label: "About Us", href: "/pages/about-us" },
-                { label: "Menu", href: "/menu" },
+                { label: "Menu", href: "/pages/menu" },
                 { label: "Contact Us", href: "/pages/contact-us" },
                 // { label: "Blog Us", href: "/blog" },
               ].map((item, i) => (
@@ -77,21 +77,10 @@ const Footer = ({ cl = "" }: { cl?: string }) => {
           <div className="order-3 text-left md:text-right">
             <h4 className="font-semibold mb-5">Support</h4>
             <ul className="space-y-3 text-sm">
-              {[
-                { label: "Privacy Policy", href: "/privacy-policy" },
-                { label: "Refund Policy", href: "/refund-policy" },
-                { label: "Terms Of Service", href: "/terms" },
-                { label: "Track Order", href: "/track-order" },
-              ].map((item, i) => (
-                <li key={i}>
-                  <Link
-                    href={item.href}
-                    className="text-gray-400 hover:text-white hover:underline transition duration-300"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
+              <li className="cursor-pointer">Privacy Policy</li>
+              <li className="cursor-pointer">Refund Policy</li>
+              <li className="cursor-pointer">Terms Of Service</li>
+              <li className="cursor-pointer">Track Order</li>
             </ul>
           </div>
         </div>
