@@ -152,8 +152,8 @@ export const Order = () => {
       <div className="text-center mb-16">
         <h2 className="font-satoshi order-title text-4xl md:text-6xl font-bold text-white">
           How To{" "}
-          <span className="font-clearface italic text-[#B38934] font-light">
-            Order
+          <span className="font-clearface italic p-1 bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent font-light">
+            Order Online
           </span>
         </h2>
 

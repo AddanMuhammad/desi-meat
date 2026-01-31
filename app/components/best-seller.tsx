@@ -61,7 +61,7 @@ export const BestSeller = () => {
       <div className="flex justify-center mb-8 sm:mb-12">
         <h2 className="font-satoshi bestseller-title text-2xl sm:text-3xl md:text-5xl font-bold leading-tight text-white">
           Best{" "}
-          <span className="font-clearface italic text-[#B38934] font-light">
+          <span className="font-clearface italic p-1 bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent font-light">
             Seller
           </span>
         </h2>

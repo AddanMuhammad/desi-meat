@@ -124,7 +124,7 @@ export const AboutUsApproach = () => {
       <div className="flex justify-center items-center mb-8">
         <h2 className="order-title font-satoshi text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-white text-center">
           Our Three-Pillar{" "}
-          <span className="font-clearface italic text-[#B38934] font-light">
+          <span className="font-clearface italic p-1 bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent font-light">
             Approach
           </span>
         </h2>
