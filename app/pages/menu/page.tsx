@@ -196,7 +196,7 @@ export default function MenuPage() {
                 {/* TYPE SELECTOR */}
                 {selectedCategory.types.length > 0 && (
                   <div className="flex justify-center items-center">
-                    <div className="mb-6 rounded-lg border border-gray-500/30 bg-[#1b1b1b]/40 p-2 relative">
+                    <div className="mb-6 rounded-lg border overflow-hidden border-gray-500/30 bg-[#1b1b1b]/40 p-2 relative">
                       {/* RIGHT ARROW (Mobile + Tablet only) */}
                       {showTypeLeft && (
                         <div>
@@ -208,7 +208,7 @@ export default function MenuPage() {
                                 behavior: "smooth",
                               })
                             }
-                            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 lg:hidden p-2 bg-black/60 backdrop-blur-sm rounded-r-lg border-l border-white/10"
+                            className="absolute left-1 top-1/2 -translate-y-1/2 z-20 lg:hidden p-1.5 bg-black/50 backdrop-blur-sm rounded-full border border-white/10"
                           >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -237,7 +237,7 @@ export default function MenuPage() {
                                 behavior: "smooth",
                               })
                             }
-                            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 lg:hidden p-2 bg-black/60 backdrop-blur-sm rounded-l-lg border-r border-white/10"
+                            className="absolute right-1 top-1/2 -translate-y-1/2 z-20 lg:hidden p-1.5 bg-black/50 backdrop-blur-sm rounded-full border border-white/10"
                           >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
