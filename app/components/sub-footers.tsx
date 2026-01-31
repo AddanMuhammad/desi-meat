@@ -76,7 +76,7 @@ const SubFooter = () => {
           <div className="relative z-10 max-w-3xl space-y-4 px-8 md:px-24">
             <h1 className="font-satoshi subfooter-title text-3xl md:text-5xl font-bold leading-tight text-white">
               Elevate Your{" "}
-              <span className="font-clearface italic text-[#d4a64a] font-light">
+              <span className="font-clearface italic p-1 bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent font-light">
                 Wellness with Meat
               </span>
               <br />

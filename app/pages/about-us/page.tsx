@@ -65,7 +65,7 @@ const AboutUs = () => {
 
           <h2 className="font-satoshi text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
             More Than a{" "}
-            <span className="font-clearface p-0.5 italic bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent">
+            <span className="font-clearface italic p-0.5 bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent">
               Butcher Shop
             </span>
           </h2>
@@ -165,7 +165,7 @@ const AboutUs = () => {
         <div className="relative z-10 max-w-3xl px-4 sm:px-6 md:px-10 xl:px-24">
           <h1 className="font-satoshi text-2xl sm:text-3xl md:text-5xl font-bold">
             Meet Our{" "}
-            <span className="font-clearface italic text-[#d4a64a] font-light">
+            <span className="font-clearface italic p-1 bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent font-light">
               Team
             </span>
           </h1>

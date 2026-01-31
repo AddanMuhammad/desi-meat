@@ -9,6 +9,13 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const phoneRegex = /^\+?[0-9]+$/; // only + and digits
 
 const ContactSection = () => {
+  const MAP_LAT = 49.1333782;
+  const MAP_LNG = -122.8219094;
+  const MAP_ADDRESS = "Dhesi Meat Shop, 72 Ave, Surrey, BC, Canada";
+
+  const GOOGLE_MAPS_URL = `https://www.google.com/maps?q=${MAP_LAT},${MAP_LNG}&z=17&output=embed`;
+  const GOOGLE_MAPS_LINK = `https://www.google.com/maps/place/Dhesi+Meat+Shop+72+Ave/@49.1333782,-122.8219094,530m/data=!3m2!1e3!4b1!4m6!3m5!1s0x5485db0003a2c625:0xf088116722803a19!8m2!3d49.1333782!4d-122.8219094!16s%2Fg%2F11w4trwwrq?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoASAFQAw%3D%3D`;
+
   const [values, setValues] = useState({
     firstName: "",
     lastName: "",
@@ -135,7 +142,7 @@ const ContactSection = () => {
               We’re Here to Listen.
               <br />
               Connect With{" "}
-              <span className="font-clearface text-[#D4AF37] italic font-semibold">
+              <span className="font-clearface p-1 bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent italic font-semibold">
                 Us Today
               </span>
             </h2>
@@ -186,6 +193,54 @@ const ContactSection = () => {
                 </div>
               </div>
             </div>
+
+            {/* GOOGLE MAP */}
+            <div className="mt-10 lg:max-w-md">
+              <div className="relative rounded-xl overflow-hidden border border-gray-700 group">
+                {/* Clickable Overlay */}
+                <a
+                  href={GOOGLE_MAPS_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 z-10"
+                  aria-label="Open location in Google Maps"
+                />
+
+                <iframe
+                  title="Google Map Location"
+                  src={GOOGLE_MAPS_URL}
+                  width="100%"
+                  height="280"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+
+                {/* Open in Google Maps Button */}
+                <div className="absolute bottom-3 right-3 z-20">
+                  <a
+                    href={GOOGLE_MAPS_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+          bg-black/80 
+          text-white 
+          text-xs 
+          px-4 py-2 
+          rounded-full 
+          border border-gray-600 
+          hover:border-[#D4AF37] 
+          hover:text-[#D4AF37]
+          transition
+        "
+                  >
+                    Open in Google Maps →
+                  </a>
+                </div>
+              </div>
+
+              {/* Address Text */}
+              <p className="text-gray-400 text-sm mt-3">📍 {MAP_ADDRESS}</p>
+            </div>
           </div>
 
           {/* RIGHT FORM */}
@@ -202,7 +257,7 @@ const ContactSection = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     placeholder={i === 0 ? "First Name" : "Last Name"}
-                    className="w-full bg-[#1A1A1A] border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-[#D4AF37]"
+                    className="w-full bg-[#1A1A1A] border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-gray-300/60"
                   />
                   {errors[field] && (
                     <p className="text-red-500 text-sm mt-1">{errors[field]}</p>
@@ -220,7 +275,7 @@ const ContactSection = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 placeholder="you@gmail.com"
-                className="w-full bg-[#1A1A1A] border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-[#D4AF37]"
+                className="w-full bg-[#1A1A1A] border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-gray-300/60"
               />
               {errors.email && (
                 <p className="text-red-500 text-sm mt-1">{errors.email}</p>
@@ -236,7 +291,7 @@ const ContactSection = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 placeholder="Your Phone Number"
-                className="w-full bg-[#1A1A1A] border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-[#D4AF37]"
+                className="w-full bg-[#1A1A1A] border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-gray-300/60"
               />
               {errors.phone && (
                 <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
@@ -253,7 +308,7 @@ const ContactSection = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 placeholder="Leave Us Message"
-                className="w-full bg-[#1A1A1A] border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-[#D4AF37]"
+                className="w-full bg-[#1A1A1A] border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-gray-300/60"
               />
               {errors.message && (
                 <p className="text-red-500 text-sm mt-1">{errors.message}</p>

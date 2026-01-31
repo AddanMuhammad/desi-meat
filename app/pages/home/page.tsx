@@ -77,7 +77,7 @@ export default function HomePage() {
         >
           <h1 className=" font-satoshi hero-title text-3xl md:text-5xl font-bold leading-tight text-white">
             Fresh • Marinated • <span>Lifestyle-</span>
-            <span className="font-clearface italic text-[#d4a64a] font-light">
+            <span className="font-clearface italic p-0.5 bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent font-light">
               Focused Meats in Surrey, BC
             </span>
             <br />

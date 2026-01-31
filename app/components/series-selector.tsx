@@ -10,7 +10,7 @@ export const SeriesSelector = () => {
       <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-10">
         <h2 className="font-satoshi series-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white">
           The Series{" "}
-          <span className="font-clearface italic text-[#B38934] font-light">
+          <span className="font-clearface italic p-1 bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent font-light">
             Selector
           </span>
         </h2>

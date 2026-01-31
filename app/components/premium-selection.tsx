@@ -129,7 +129,7 @@ export const PerimumSeriesSelector = () => {
         <div className="flex justify-center mb-10">
           <h2 className="premium-title text-center font-satoshi text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-bold text-white leading-tight ">
             Our Premium Selection:{" "}
-            <p className=" font-clearface italic text-[#B38934] lg:inline font-light">
+            <p className=" font-clearface italic p-1 bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent lg:inline font-light">
               Fresh & Marinated
             </p>
           </h2>
