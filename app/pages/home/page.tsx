@@ -78,7 +78,7 @@ export default function HomePage() {
           <h1 className=" font-satoshi hero-title text-3xl md:text-5xl font-bold leading-tight text-white">
             Fresh • Marinated • <span>Lifestyle-</span>
             <span className="font-clearface italic p-0.5 bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent font-light">
-              Focused Meats in Surrey, BC
+              Focused Meats <br /> in Surrey, BC
             </span>
             <br />
           </h1>
@@ -94,7 +94,7 @@ export default function HomePage() {
               // onClick={}
               className="uppercase tracking-wider mt-4"
               gradientToWhite={true}
-              href="https://dhesimeat.cloudwaitress.com/"
+              href="https://dhesimeats.restaurantsolutions.ca/"
             />
           </div>
         </div>

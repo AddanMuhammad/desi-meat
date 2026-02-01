@@ -73,11 +73,13 @@ export const MobileBottomBar = () => {
         </Link>
 
         <Link
-          href="https://dhesimeat.cloudwaitress.com/"
+          href="https://dhesimeats.restaurantsolutions.ca/"
           aria-label="Order Now"
-          className={itemClass("https://dhesimeat.cloudwaitress.com/")}
+          className={itemClass("https://dhesimeats.restaurantsolutions.ca/")}
         >
-          <div className={imageClass("https://dhesimeat.cloudwaitress.com/")}>
+          <div
+            className={imageClass("https://dhesimeats.restaurantsolutions.ca/")}
+          >
             <img
               src="/icons/order-now.svg"
               alt="Order Now"

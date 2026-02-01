@@ -50,7 +50,7 @@ const Footer = ({ cl = "" }: { cl?: string }) => {
                 placeholder="Enter your email"
                 className="flex-1 px-5 py-3 text-black outline-none"
               />
-              <button className="bg-linear-to-br from-[#cfa44a] to-[#e6c36a] text-black font-semibold mr-1.25 px-2 lg:px-4 py-2 rounded-full hover:bg-[#b8923f] transition">
+              <button className="font-satoshi font-semibold bg-linear-to-br from-[#cfa44a] to-[#e6c36a] text-black  mr-1.25 px-2 lg:px-4 py-2 rounded-full hover:bg-[#b8923f] transition">
                 Sign up
               </button>
             </div>

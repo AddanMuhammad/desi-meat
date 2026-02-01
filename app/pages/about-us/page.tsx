@@ -65,7 +65,7 @@ const AboutUs = () => {
 
           <h2 className="font-satoshi text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
             More Than a{" "}
-            <span className="font-clearface italic p-0.5 bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent">
+            <span className="font-clearface italic font-light p-0.5 bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent">
               Butcher Shop
             </span>
           </h2>
@@ -97,7 +97,7 @@ const AboutUs = () => {
               text="ORDER ONLINE"
               className="uppercase tracking-wider mb-5"
               gradientToWhite
-              href="https://dhesimeat.cloudwaitress.com/"
+              href="https://dhesimeats.restaurantsolutions.ca/"
             />
           </div>
         </div>
@@ -122,7 +122,7 @@ const AboutUs = () => {
 
             <h2 className="font-satoshi text-2xl sm:text-3xl lg:text-4xl font-bold mb-3">
               The Dhesi{" "}
-              <span className="font-clearface p-0.5 italic bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent">
+              <span className="font-clearface p-0.5 italic bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent font-light">
                 Difference
               </span>
             </h2>
@@ -159,7 +159,7 @@ const AboutUs = () => {
         <img
           src="/images/about-us3.png"
           alt="Team"
-          className="absolute inset-0 w-full h-full object-cover lg:hidden"
+          className="absolute inset-0 w-full h-full object-cover object-top  lg:hidden"
         />
 
         <div className="relative z-10 max-w-3xl px-4 sm:px-6 md:px-10 xl:px-24">
@@ -183,7 +183,7 @@ const AboutUs = () => {
               text="ORDER ONLINE"
               className="uppercase tracking-wider text-sm"
               gradientToWhite
-              href="https://dhesimeat.cloudwaitress.com/"
+              href="https://dhesimeats.restaurantsolutions.ca/"
             />
           </div>
         </div>
