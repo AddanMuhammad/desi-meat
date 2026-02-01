@@ -9,9 +9,9 @@ import { PrimaryButton } from "@/app/components/ui/primary-button";
 export default function MenuPage() {
   const typeScrollRef = useRef<HTMLDivElement>(null);
   const navScrollRef = useRef<HTMLDivElement>(null);
+
   const [showNavLeft, setShowNavLeft] = useState(false);
   const [showNavRight, setShowNavRight] = useState(true);
-
   const [showTypeLeft, setShowTypeLeft] = useState(false);
   const [showTypeRight, setShowTypeRight] = useState(true);
 
@@ -23,7 +23,6 @@ export default function MenuPage() {
     if (!ref.current) return;
 
     const { scrollLeft, scrollWidth, clientWidth } = ref.current;
-
     setLeft(scrollLeft > 0);
     setRight(scrollLeft + clientWidth < scrollWidth - 5);
   };
@@ -34,7 +33,6 @@ export default function MenuPage() {
 
     const onNavScroll = () =>
       handleScrollButtons(navScrollRef, setShowNavLeft, setShowNavRight);
-
     const onTypeScroll = () =>
       handleScrollButtons(typeScrollRef, setShowTypeLeft, setShowTypeRight);
 
@@ -94,7 +92,7 @@ export default function MenuPage() {
         </span>
       </h2>
 
-      <div ref={sectionRef} className="min-h-screen pt-4 pb-12">
+      <div ref={sectionRef} className="min-h-screen pt-4  lg:pb-12">
         <div className="mx-3 sm:mx-6 lg:mx-6 2xl:mx-32">
           <div className="flex flex-col gap-6 lg:flex-row">
             {/* SIDEBAR */}
@@ -102,7 +100,6 @@ export default function MenuPage() {
               <div className="rounded-xl border border-[#2f2f2f] bg-[#1b1b1b]/40 backdrop-blur-sm p-2 sm:p-4 lg:sticky lg:top-8 relative">
                 {showNavLeft && (
                   <div>
-                    {/* <div className="absolute left-2 top-1/2 -translate-y-1/2 z-20  blur-2xl bg-white h-10 w-10 lg:hidden" /> */}
                     <button
                       onClick={() =>
                         navScrollRef.current?.scrollBy({
@@ -156,18 +153,19 @@ export default function MenuPage() {
                     </svg>
                   </button>
                 )}
+
                 <nav
                   ref={navScrollRef}
-                  className="flex gap-2 overflow-x-auto lg:flex-col lg:gap-1 lg:overflow-visible scrollbar-thin scrollbar-thumb-white/10"
+                  className="flex gap-2 overflow-x-auto lg:flex-col lg:gap-1 lg:overflow-visible scrollbar-hide" // Updated here
                 >
                   {menuData.map((category) => (
                     <button
                       key={category.id}
                       onClick={() => setSelectedCategoryId(category.id)}
-                      className={`flex items-center gap-3 rounded-lg p-3 transition-all duration-300 ease-out min-w-max lg:min-w-0 cursor-pointer ${
+                      className={`flex items-center gap-3 rounded-lg p-3 min-w-max lg:min-w-0 cursor-pointer ${
                         selectedCategoryId === category.id
                           ? "bg-linear-to-r from-[#B38934]/20 to-[#e6ca79]/10 border border-amber-500/30 text-amber-100"
-                          : "text-gray-400 hover:text-white hover:bg-white/5 border border-transparent"
+                          : "text-gray-400 border border-transparent"
                       }`}
                     >
                       {category.icon_url && (
@@ -188,7 +186,7 @@ export default function MenuPage() {
 
             {/* MAIN CONTENT */}
             <div className="flex-1">
-              <div className="rounded-xl border border-gray-500/30 bg-[#1B1B1B]/20 backdrop-blur-sm p-5 sm:p-6 lg:p-8">
+              <div className="lg:rounded-xl lg:border lg:border-gray-500/30 lg:bg-[#1B1B1B]/20 lg:backdrop-blur-sm p-2 g:p-8">
                 <h1 className=" text-center text-2xl font-light tracking-wide text-gray-300 mb-5">
                   Category of {selectedCategory.name}
                 </h1>
@@ -200,7 +198,6 @@ export default function MenuPage() {
                       {/* RIGHT ARROW (Mobile + Tablet only) */}
                       {showTypeLeft && (
                         <div>
-                          {/* <div className="absolute left-2 top-1/2 -translate-y-1/2 z-20  blur-2xl bg-white h-10 w-10 lg:hidden" /> */}
                           <button
                             onClick={() =>
                               typeScrollRef.current?.scrollBy({
@@ -227,9 +224,9 @@ export default function MenuPage() {
                           </button>
                         </div>
                       )}
+
                       {showTypeRight && (
                         <div>
-                          {/* <div className="absolute right-2 top-1/2 -translate-y-1/2 z-20  blur-2xl bg-white h-10 w-10 lg:hidden" /> */}
                           <button
                             onClick={() =>
                               typeScrollRef.current?.scrollBy({
@@ -256,22 +253,27 @@ export default function MenuPage() {
                           </button>
                         </div>
                       )}
+
                       <div
                         ref={typeScrollRef}
-                        className="flex gap-3 overflow-x-auto  scrollbar-thin scrollbar-thumb-white/10"
+                        className="flex gap-3 overflow-x-auto scrollbar-hide" // Updated here
                       >
                         {selectedCategory.types.map((type) => (
                           <button
                             key={type.id}
                             onClick={() => setSelectedTypeId(type.id)}
-                            className={`flex items-center gap-2 cursor-pointer rounded-xl p-2 transition-all duration-300 min-w-max border ${
+                            className={`flex items-center gap-2 cursor-pointer rounded-xl p-2 min-w-max border ${
                               selectedTypeId === type.id
                                 ? "bg-linear-to-br from-[#B38934]/20 to-[#e6ca79]/10 border-amber-500/40 text-amber-100"
-                                : "border-white/10 bg-white/5 text-gray-400 hover:text-white hover:border-white/20"
+                                : "border-white/10 bg-white/5 text-gray-400"
                             }`}
                           >
                             <div
-                              className={`p-2 rounded-lg ${selectedTypeId === type.id ? "bg-amber-500/20" : "bg-white/5"}`}
+                              className={`p-2 rounded-lg ${
+                                selectedTypeId === type.id
+                                  ? "bg-amber-500/20"
+                                  : "bg-white/5"
+                              }`}
                             >
                               <img
                                 src={type.icon}
@@ -294,16 +296,30 @@ export default function MenuPage() {
                   <div className="min-h-screen">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-10 gap-4">
                       {/* ================= MAIN CARD ================= */}
-                      <div className="lg:col-span-4 sm:col-span-2 flex flex-col rounded-2xl border border-[#2f2f2f] bg-[#1B1B1B] overflow-hidden">
+                      <div
+                        className="
+                                lg:col-span-4 sm:col-span-2
+                                flex flex-col
+                                rounded-2xl
+                                border border-[#2f2f2f]
+                                bg-[#1B1B1B]
+                                overflow-hidden
+                                group
+    transition-all duration-300 ease-out
+    hover:-translate-y-1
+    hover:border-amber-400/40
+    hover:shadow-[0_10px_40px_-10px_rgba(212,166,74,0.35)]
+                              "
+                      >
                         <div className="p-4 flex flex-col gap-3 flex-1">
                           {/* Image */}
                           <div className="relative rounded-xl overflow-hidden aspect-[4/3]">
                             <img
                               src={currentItems?.image_url}
                               alt={currentItems?.name || "item"}
-                              className="w-full h-full object-cover"
+                              className="w-full h-full object-cover  transition-transform duration-500 ease-out
+    group-hover:scale-105"
                             />
-
                             {/* Badges */}
                             {currentItems?.image_url && (
                               <div className="absolute top-3 left-3 flex gap-2 z-10">
@@ -331,25 +347,31 @@ export default function MenuPage() {
                         {/* Footer */}
                         <div className="flex items-center justify-between p-4">
                           <span className="text-xl sm:text-2xl">$ 15</span>
-
                           <PrimaryButton
                             primaryColor="#d4a64a"
                             text="Order Online"
                             gradientToWhite
                             className="uppercase tracking-wider text-xs sm:text-sm"
-                            href="https://dhesimeat.cloudwaitress.com/"
+                            href="https://dhesimeats.restaurantsolutions.ca/"
                           />
                         </div>
                       </div>
 
                       {/* ================= FEATURE IMAGE ================= */}
                       {currentItems?.images?.[0] && (
-                        <div className="lg:col-span-6 sm:col-span-2 rounded-2xl overflow-hidden border border-[#2f2f2f] bg-[#1B1B1B] p-3">
+                        <div
+                          className="lg:col-span-6 sm:col-span-2 rounded-2xl overflow-hidden border border-[#2f2f2f] bg-[#1B1B1B] p-3  group
+    transition-all duration-300 ease-out
+    hover:-translate-y-1
+    hover:border-amber-400/30
+    hover:shadow-[0_10px_40px_-12px_rgba(212,166,74,0.3)]"
+                        >
                           <div className="w-full h-full aspect-video overflow-hidden rounded-2xl">
                             <img
                               src={currentItems.images[0]}
                               alt="featured"
-                              className="w-full h-full object-cover"
+                              className="w-full h-full object-cover  transition-transform duration-500 ease-out
+    group-hover:scale-105"
                             />
                           </div>
                         </div>
@@ -359,13 +381,18 @@ export default function MenuPage() {
                       {currentItems?.images?.slice(1, 3).map((img, index) => (
                         <div
                           key={index}
-                          className="lg:col-span-5 sm:col-span-1 rounded-2xl overflow-hidden border border-[#2f2f2f] bg-[#1B1B1B] p-3"
+                          className="lg:col-span-5 sm:col-span-1 rounded-2xl overflow-hidden border border-[#2f2f2f] bg-[#1B1B1B] p-3 group
+    transition-all duration-300 ease-out
+    hover:-translate-y-1
+    hover:border-amber-400/30
+    hover:shadow-[0_10px_35px_-12px_rgba(212,166,74,0.25)]"
                         >
                           <div className="aspect-[4/3] overflow-hidden rounded-2xl">
                             <img
                               src={img}
                               alt={`gallery-${index}`}
-                              className="w-full h-full object-cover"
+                              className="w-full h-full object-cover transition-transform duration-500 ease-out
+    group-hover:scale-105"
                             />
                           </div>
                         </div>

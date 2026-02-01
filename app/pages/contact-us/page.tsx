@@ -3,6 +3,7 @@ import { NavBar } from "@/app/components/navbar";
 import Footer from "@/app/components/ui/footer";
 import { PrimaryButton } from "@/app/components/ui/primary-button";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -142,7 +143,7 @@ const ContactSection = () => {
               We’re Here to Listen.
               <br />
               Connect With{" "}
-              <span className="font-clearface p-1 bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent italic font-semibold">
+              <span className="font-clearface p-1 bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent italic font-light">
                 Us Today
               </span>
             </h2>
@@ -174,24 +175,28 @@ const ContactSection = () => {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                {/* <MapPin className="text-[#D4AF37]" /> */}
-                <Image
-                  src={"/icons/map-pin-icon.svg"}
-                  alt="Map Pin"
-                  width={20}
-                  height={20}
-                />
-                <div>
-                  <p className="font-semibold text-start text-base sm:text-lg md:text-lg">
-                    Location
-                  </p>
-                  <p className="text-gray-400 text-start">Reach out anytime</p>
-                  <p className="text-white text-start text-xs sm:text-sm  md:text-lg">
-                    Fleetwood, Surrey, BC
-                  </p>
+              <a href={GOOGLE_MAPS_LINK}>
+                <div className="flex items-start gap-4">
+                  {/* <MapPin className="text-[#D4AF37]" /> */}
+                  <Image
+                    src={"/icons/map-pin-icon.svg"}
+                    alt="Map Pin"
+                    width={20}
+                    height={20}
+                  />
+                  <div>
+                    <p className="font-semibold text-start text-base sm:text-lg md:text-lg">
+                      Location
+                    </p>
+                    <p className="text-gray-400 text-start">
+                      Reach out anytime
+                    </p>
+                    <p className="text-white text-start text-xs sm:text-sm  md:text-lg">
+                      Fleetwood, Surrey, BC
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
 
             {/* GOOGLE MAP */}
@@ -318,7 +323,7 @@ const ContactSection = () => {
             <PrimaryButton
               primaryColor="#d4a64a"
               text="SUBMIT"
-              className="uppercase tracking-wider cursor-pointer"
+              className="uppercase tracking-wider cursor-pointer px-8 py-3"
               gradientToWhite={true}
             />
           </form>

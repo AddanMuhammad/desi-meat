@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { orderCardData } from "../json-data/order";
@@ -13,6 +13,24 @@ export const Order = () => {
   const gridRef = useRef<HTMLDivElement>(null);
   const bagRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  // Check if we're on desktop on mount and window resize
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    // Initial check
+    checkScreenSize();
+
+    // Add resize listener
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+    };
+  }, []);
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -80,8 +98,11 @@ export const Order = () => {
     };
   }, []);
 
-  // Hover animations
+  // Hover animations - ONLY FOR DESKTOP
   useEffect(() => {
+    // Only add hover effects on desktop (1024px and above)
+    if (!isDesktop) return;
+
     const hoverHandlers: Array<{
       card: HTMLDivElement;
       enter: () => void;
@@ -129,7 +150,7 @@ export const Order = () => {
         card.removeEventListener("mouseleave", leave);
       });
     };
-  }, [orderCardData]);
+  }, [orderCardData, isDesktop]); // Added isDesktop as dependency
 
   return (
     <section
@@ -167,16 +188,18 @@ export const Order = () => {
       {/* Cards Grid */}
       <div
         ref={gridRef}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 relative z-10"
       >
         {orderCardData.map((card, index) => (
           <div
             key={index}
             ref={(el) => {
               cardRefs.current[index] = el;
-            }} // ✅ ref callback returns void
+            }}
+            // Added pointer-events-auto for mobile/tablet to ensure they remain clickable
             className="order-card border border-[#2f2f2f] rounded-2xl p-8 flex flex-col justify-between items-center shadow-lg
-                       h-full bg-linear-to-br from-[#B78E39]/20 to-[#161616] gap-4 cursor-pointer will-change-transform"
+                       h-full bg-linear-to-br from-[#B78E39]/20 to-[#161616] gap-4 
+                       lg:cursor-pointer will-change-transform"
           >
             <img src={card.icon_url} alt={card.title} />
             <h3 className="text-lg md:text-lg font-bold text-white">

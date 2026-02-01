@@ -63,7 +63,7 @@ export const NavBar = () => {
           text="ORDER ONLINE"
           className="uppercase tracking-wider"
           gradientToWhite={true}
-          href="https://dhesimeat.cloudwaitress.com/"
+          href="https://dhesimeats.restaurantsolutions.ca/"
         />
       </nav>
     </div>

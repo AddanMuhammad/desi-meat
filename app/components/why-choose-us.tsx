@@ -118,7 +118,7 @@ const WhyChooseUs = () => {
         >
           <h2 className="why-title mb-4 text-3xl sm:text-4xl md:text-5xl font-bold text-white font-satoshi">
             Why Choose{" "}
-            <span className="p-1 bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent italic font-clearface">
+            <span className="p-1 bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent italic font-clearface font-light">
               Us?
             </span>
           </h2>

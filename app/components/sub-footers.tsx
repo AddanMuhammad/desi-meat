@@ -116,7 +116,7 @@ const SubFooter = () => {
                 // onClick={}
                 className="uppercase tracking-wider"
                 gradientToWhite={true}
-                href="https://dhesimeat.cloudwaitress.com/"
+                href="https://dhesimeats.restaurantsolutions.ca/"
               />
             </div>
           </div>

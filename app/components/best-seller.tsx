@@ -161,7 +161,7 @@ export const BestSeller = () => {
                     text={card.button.text}
                     gradientToWhite={card.button.isGradient}
                     className="uppercase tracking-wider text-xs sm:text-sm"
-                    href="https://dhesimeat.cloudwaitress.com/"
+                    href="https://dhesimeats.restaurantsolutions.ca/"
                   />
                 </div>
               </div>

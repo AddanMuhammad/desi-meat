@@ -29,8 +29,8 @@ export const SeriesSelector = () => {
             className="
               series-card
               border border-[#2f2f2f]
-              rounded-2xl p-5 sm:p-6
-              flex flex-row justify-between md:justify-around
+              rounded-2xl p-4
+              flex flex-row justify-between 
               gap-6
               h-full
               bg-linear-to-r from-[#B78E39]/20 to-[#161616]
@@ -55,8 +55,8 @@ export const SeriesSelector = () => {
                 primaryColor="#d4a64a"
                 text={card.button.text}
                 gradientToWhite={card.button.isGradient}
-                className="uppercase tracking-wider w-fit"
-                href="https://dhesimeat.cloudwaitress.com/"
+                className="uppercase  w-fit"
+                href="https://dhesimeats.restaurantsolutions.ca/"
               />
             </div>
 
