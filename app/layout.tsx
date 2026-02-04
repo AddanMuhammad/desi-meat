@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Work_Sans } from "next/font/google";
 import "./globals.css";
 import { satoshi, itcClearface } from "./font";
 import { MobileBottomBar } from "./components/mobile-bottombar";
+import UpperNavbar from "./components/upper-navbar";
 
 const workSans = Work_Sans({
   variable: "--font-work-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({
           ${workSans.variable}
         `}
       >
+        <UpperNavbar />
         <div className="min-h-dvh ">{children}</div>
         <MobileBottomBar />
       </body>
