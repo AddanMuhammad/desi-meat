@@ -257,7 +257,7 @@ export default function MenuPage() {
             </div>
 
             {/* MAIN CONTENT */}
-         
+
             <div className="flex-1">
               <div className="lg:rounded-xl lg:border lg:border-gray-500/30 lg:bg-[#1B1B1B]/20 lg:backdrop-blur-sm p-2 lg:p-3">
                 {/* <h1 className="text-center text-2xl font-light tracking-wide text-gray-300 mb-5">
@@ -267,7 +267,7 @@ export default function MenuPage() {
                 {/* TYPE SELECTOR */}
                 {selectedCategory.types.length > 0 && (
                   <div className="flex justify-center items-center">
-                    <div className="mb-3 relative">
+                    <div className="mb-3 rounded-lg border overflow-hidden border-gray-500/30 bg-[#1b1b1b]/40 p-2 relative">
                       {showTypeLeft && (
                         <button
                           onClick={() =>
