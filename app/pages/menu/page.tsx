@@ -156,14 +156,14 @@ export default function MenuPage() {
       <div className="border-t border-gray-500/90" />
 
       {/* PAGE TITLE */}
-      <h2 className="font-satoshi p-6 text-center text-3xl font-bold sm:text-4xl lg:text-5xl">
+      <h2 className="font-satoshi p-3 text-center text-3xl font-bold sm:text-4xl lg:text-5xl">
         Our{" "}
         <span className="font-clearface font-light italic p-1 bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent">
           Menu
         </span>
       </h2>
 
-      <div ref={sectionRef} className="min-h-screen pt-4 lg:pb-12">
+      <div ref={sectionRef} className="min-h-screen lg:pb-12">
         <div className="mx-3 sm:mx-6 lg:mx-6 2xl:mx-32">
           <div className="flex flex-col gap-6 lg:flex-row">
             {/* SIDEBAR */}
@@ -257,16 +257,17 @@ export default function MenuPage() {
             </div>
 
             {/* MAIN CONTENT */}
+         
             <div className="flex-1">
-              <div className="lg:rounded-xl lg:border lg:border-gray-500/30 lg:bg-[#1B1B1B]/20 lg:backdrop-blur-sm p-2 lg:p-8">
-                <h1 className="text-center text-2xl font-light tracking-wide text-gray-300 mb-5">
+              <div className="lg:rounded-xl lg:border lg:border-gray-500/30 lg:bg-[#1B1B1B]/20 lg:backdrop-blur-sm p-2 lg:p-3">
+                {/* <h1 className="text-center text-2xl font-light tracking-wide text-gray-300 mb-5">
                   Category of {selectedCategory.name}
-                </h1>
+                </h1> */}
 
                 {/* TYPE SELECTOR */}
                 {selectedCategory.types.length > 0 && (
                   <div className="flex justify-center items-center">
-                    <div className="mb-6 rounded-lg border overflow-hidden border-gray-500/30 bg-[#1b1b1b]/40 p-2 relative">
+                    <div className="mb-3 relative">
                       {showTypeLeft && (
                         <button
                           onClick={() =>
@@ -365,7 +366,7 @@ export default function MenuPage() {
 
                 {/* ITEMS GRID */}
                 {currentItems ? (
-                  <div className="min-h-screen">
+                  <div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-10 gap-4">
                       {/* ================= MAIN CARD ================= */}
                       <div
