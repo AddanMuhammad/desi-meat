@@ -214,7 +214,7 @@ export const menuData: MenuCategory[] = [
           time: "30 min",
           status: "445 kkl",
         },
-      }
+      },
     ],
   },
   {
@@ -257,7 +257,7 @@ export const menuData: MenuCategory[] = [
           time: "30 min",
           status: "445 kkl",
         },
-      }
+      },
     ],
   },
   {
@@ -272,7 +272,8 @@ export const menuData: MenuCategory[] = [
         items: {
           id: "paneer-tikka",
           name: "Paneer Tikka",
-          description: "Paneer marinated in spiced yogurt and grilled in a Tandoor, a traditional clay oven",
+          description:
+            "Paneer marinated in spiced yogurt and grilled in a Tandoor, a traditional clay oven",
           image_url: "/images/menu/veg/veg1.png",
           images: [
             "/images/menu/veg/veg2.png",
@@ -290,7 +291,8 @@ export const menuData: MenuCategory[] = [
         items: {
           id: "soya-chaap-1",
           name: "Soya Chaap",
-          description: "high-protein meat substitute made from soybean and flour dough wrapped around wooden sticks",
+          description:
+            "high-protein meat substitute made from soybean and flour dough wrapped around wooden sticks",
           image_url: "/images/menu/soya/soya1.png",
           images: [
             "/images/menu/soya/soya2.png",
@@ -300,7 +302,53 @@ export const menuData: MenuCategory[] = [
           time: "30 min",
           status: "445 kkl",
         },
-      }
+      },
+    ],
+  },
+
+  {
+    id: "dip&sauces",
+    name: "Dip & Sauces",
+    icon_url: "/icons/sausage.svg",
+    types: [
+      {
+        id: "green-chutney",
+        name: "Green Chutney",
+        icon: "/icons/sausage.svg",
+        items: {
+          id: "green-chutney",
+          name: "Green Chutney",
+          description:
+            "Fresh and flavorful green chutney. Accompaniments are available in small and large sizes.",
+          image_url: "/images/menu/sauce/sauce1.jpg",
+          images: [
+            "/images/menu/sauce/sauce2.jpg",
+            "/images/menu/sauce/sauce3.jpg",
+            "/images/menu/sauce/sauce4.jpg",
+          ],
+          time: "30 min",
+          status: "445 kkl",
+        },
+      },
+      {
+        id: "tartar-sauce",
+        name: "Tartar Sauce",
+        icon: "/icons/sausage.svg",
+        items: {
+          id: "tartar-sauce",
+          name: "Tartar Sauce",
+          description:
+            "Creamy tartar sauce with a tangy flavor. Accompaniments are available in small and large sizes.",
+          image_url: "/images/menu/sauce/tartar1.png",
+          images: [
+            "/images/menu/sauce/tartar2.png",
+            "/images/menu/sauce/tartar3.png",
+            "/images/menu/sauce/tartar4.jpeg",
+          ],
+          time: "30 min",
+          status: "445 kkl",
+        },
+      },
     ],
   },
 ];
