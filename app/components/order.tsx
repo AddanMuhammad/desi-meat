@@ -161,10 +161,10 @@ export const Order = () => {
       <YellowGlow
         className="
       top-[-10%] left-1 -translate-x-1/2  
-      w-[480px] h-[480px]
+      w-120 h-120
       
-      md:w-[520px] md:h-[520px]
-      lg:w-[520px] lg:h-[720px]
+      md:w-130 md:h-130
+      lg:w-130 lg:h-180
       
       z-0
     "
@@ -217,11 +217,7 @@ export const Order = () => {
         ref={bagRef}
         className="absolute bottom-0 left-1/2 -translate-x-1/2 z-0 pointer-events-none"
       >
-        <img
-          src="/images/bag.png"
-          alt="Bag"
-          className="w-[280px] md:w-[520px]"
-        />
+        <img src="/images/bag.png" alt="Bag" className="w-70 md:w-130" />
       </div>
     </section>
   );

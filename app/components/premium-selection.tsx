@@ -14,6 +14,7 @@ export const PerimumSeriesSelector = () => {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const descriptionRefs = useRef<(HTMLParagraphElement | null)[]>([]);
   const arrowRefs = useRef<(HTMLImageElement | null)[]>([]);
+  const imageRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -104,6 +105,16 @@ export const PerimumSeriesSelector = () => {
     });
   }, [selectedIndex]);
 
+  useEffect(() => {
+    if (!imageRef.current || selectedIndex === null) return;
+
+    gsap.fromTo(
+      imageRef.current,
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
+    );
+  }, [selectedIndex]);
+
   return (
     <section
       ref={sectionRef}
@@ -118,9 +129,9 @@ export const PerimumSeriesSelector = () => {
     lg:right-[-25%]
     right-[-50%]
     -translate-y-1/2
-    w-[480px] h-[480px]
-    md:w-[520px] md:h-[520px]
-    lg:w-[600px] lg:h-[720px]
+    w-120 h-120
+    md:w-130 md:h-130
+    lg:w-150 lg:h-180
     -z-10
   "
       />
@@ -202,9 +213,21 @@ export const PerimumSeriesSelector = () => {
           {/* Right Image */}
           <div className="w-full lg:w-1/2 flex justify-center">
             <img
-              src="/images/premium-meat.png"
-              alt=""
-              className="premium-image w-full max-w-md sm:max-w-lg md:max-w-full xl:max-w-xl h-[280px] sm:h-[360px] md:h-[450px] lg:h-[520px] object-cover rounded-xl"
+              ref={imageRef}
+              src={
+                selectedIndex !== null
+                  ? premiumSelection[selectedIndex].preview_img
+                  : "/images/premium-meat.png"
+              }
+              alt={premiumSelection[selectedIndex ?? 0].title}
+              className="
+      premium-image
+      w-full
+      max-w-md sm:max-w-lg md:max-w-full xl:max-w-xl
+      h-70 sm:h-90 md:h-112.5 lg:h-130
+      object-cover
+      rounded-xl
+    "
             />
           </div>
         </div>

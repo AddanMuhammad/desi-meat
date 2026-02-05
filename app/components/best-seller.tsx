@@ -60,9 +60,9 @@ export const BestSeller = () => {
       {/* Title */}
       <div className="flex justify-center mb-8 sm:mb-12">
         <h2 className="font-satoshi bestseller-title text-2xl sm:text-3xl md:text-5xl font-bold leading-tight text-white">
-          Best{" "}
+          Popular{" "}
           <span className="font-clearface italic p-1 bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent font-light">
-            Seller
+            Selling Items
           </span>
         </h2>
       </div>
@@ -131,16 +131,6 @@ export const BestSeller = () => {
                 />
               </div>
 
-              {/* Badges */}
-              <div className="absolute top-5 left-5 flex gap-2">
-                <span className="text-xs bg-black/40 backdrop-blur text-white px-2 py-1 rounded-md border border-white/20">
-                  {card.time}
-                </span>
-                <span className="text-xs bg-black/40 backdrop-blur text-white px-2 py-1 rounded-md border border-white/20">
-                  {card.status}
-                </span>
-              </div>
-
               {/* Content */}
               <div className="flex flex-col flex-1 p-4">
                 <h3 className="text-base sm:text-lg md:text-xl font-bold text-white mb-1">
@@ -152,8 +142,8 @@ export const BestSeller = () => {
                 </p>
 
                 <div className="flex items-center justify-between mt-4">
-                  <span className="text-lg sm:text-xl text-white font-semibold">
-                    ${card.price}
+                  <span className="text-lg sm:text-base bg-linear-to-l p-0.5 from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent font-light italic">
+                    {card.detail}
                   </span>
 
                   <PrimaryButton

@@ -30,7 +30,7 @@ export const menuData: MenuCategory[] = [
     types: [
       {
         id: "raw-plain-cuts",
-        name: "Raw Plain Cuts",
+        name: "Raw Chicken",
         icon: "/icons/chicken.svg",
         items: {
           id: "whole-chicken-1",

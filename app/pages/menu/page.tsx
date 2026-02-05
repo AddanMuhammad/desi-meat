@@ -386,7 +386,7 @@ export default function MenuPage() {
                       >
                         <div className="p-4 flex flex-col gap-3 flex-1">
                           {/* Image */}
-                          <div className="relative rounded-xl overflow-hidden aspect-[4/3]">
+                          <div className="relative rounded-xl overflow-hidden aspect-4/3">
                             {currentItems?.image_url && (
                               <>
                                 <Image
@@ -425,7 +425,9 @@ export default function MenuPage() {
 
                         {/* Footer */}
                         <div className="flex items-center justify-between p-4">
-                          <span className="text-xl sm:text-2xl">$ 15</span>
+                          <span className="text-lg sm:text-xl bg-linear-to-l p-0.5 from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent font-light italic">
+                            See More
+                          </span>
                           <PrimaryButton
                             primaryColor="#d4a64a"
                             text="Order Online"
@@ -470,7 +472,7 @@ export default function MenuPage() {
                           hover:border-amber-400/30
                           hover:shadow-[0_10px_35px_-12px_rgba(212,166,74,0.25)]"
                         >
-                          <div className="aspect-[4/3] overflow-hidden rounded-2xl relative">
+                          <div className="aspect-4/3 overflow-hidden rounded-2xl relative">
                             <Image
                               src={img}
                               alt={`gallery-${index}`}

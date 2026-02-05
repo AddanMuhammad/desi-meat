@@ -113,10 +113,10 @@ export const AboutUsApproach = () => {
             md:top-[-15%] 
             lg:top-[-60%] 
             left-2 -translate-x-1/2  
-            w-[480px] h-[480px]
+            w-120 h-120
             
-            md:w-[520px] md:h-[520px]
-            lg:w-[520px] lg:h-[720px]
+            md:w-130 md:h-130
+            lg:w-130 lg:h-180
             
             z-0
           "
@@ -145,7 +145,7 @@ export const AboutUsApproach = () => {
             ref={(el) => {
               cardRefs.current[index] = el;
             }}
-            className="order-card border border-[#2f2f2f] rounded-2xl p-6 sm:p-8 flex flex-col justify-between items-center shadow-lg h-full bg-gradient-to-r from-[#B78E39]/20 to-[#161616] gap-4 cursor-pointer transition-all"
+            className="order-card border border-[#2f2f2f] rounded-2xl p-6 sm:p-8 flex flex-col justify-between items-center shadow-lg h-full bg-linear-to-r from-[#B78E39]/20 to-[#161616] gap-4 cursor-pointer transition-all"
           >
             <img
               src={card.icon_url}
