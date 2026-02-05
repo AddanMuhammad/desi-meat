@@ -44,7 +44,7 @@ const Footer = ({ cl = "" }: { cl?: string }) => {
               delivered to your door for a delicious experience every time.
             </p>
 
-            <div className="flex items-center bg-white rounded-full w-full lg:max-w-md overflow-hidden mb-6">
+            {/* <div className="flex items-center bg-white rounded-full w-full lg:max-w-md overflow-hidden mb-6">
               <input
                 type="email"
                 placeholder="Enter your email"
@@ -53,7 +53,7 @@ const Footer = ({ cl = "" }: { cl?: string }) => {
               <button className="font-satoshi font-semibold bg-linear-to-br from-[#cfa44a] to-[#e6c36a] text-black  mr-1.25 px-2 lg:px-4 py-2 rounded-full hover:bg-[#b8923f] transition">
                 Sign up
               </button>
-            </div>
+            </div> */}
 
             <div className="flex gap-4">
               {[
@@ -78,7 +78,7 @@ const Footer = ({ cl = "" }: { cl?: string }) => {
             <h4 className="font-semibold mb-5">Support</h4>
             <ul className="space-y-3 text-sm">
               <li className="cursor-pointer">Privacy Policy</li>
-              <li className="cursor-pointer">Refund Policy</li>
+              <li className="cursor-pointer">+1 604-593-5222</li>
               <li className="cursor-pointer">Terms Of Service</li>
               <li className="cursor-pointer">Track Order</li>
             </ul>
@@ -87,8 +87,7 @@ const Footer = ({ cl = "" }: { cl?: string }) => {
 
         {/* COPYRIGHT */}
         <div className="mt-8 lg:mt-14 text-center text-xs text-gray-500">
-          © 2025 Dhesi Meat. All rights reserved. Reproduction without consent
-          is prohibited.
+          Copyright © 2025 All rights reserved. Powered by Easy To Scale Inc.
         </div>
       </div>
     </footer>

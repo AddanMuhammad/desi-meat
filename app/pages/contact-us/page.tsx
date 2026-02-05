@@ -10,12 +10,21 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const phoneRegex = /^\+?[0-9]+$/; // only + and digits
 
 const ContactSection = () => {
-  const MAP_LAT = 49.1333782;
-  const MAP_LNG = -122.8219094;
-  const MAP_ADDRESS = "Dhesi Meat Shop, 72 Ave, Surrey, BC, Canada";
+  const MAP_LAT = 49.159202149039665;
+  const MAP_LNG = -122.7807584809484;
+  const MAP_ADDRESS = "15933 Fraser Hwy #104, Surrey, BC V4N 0Y3, Canada";
 
   const GOOGLE_MAPS_URL = `https://www.google.com/maps?q=${MAP_LAT},${MAP_LNG}&z=17&output=embed`;
-  const GOOGLE_MAPS_LINK = `https://www.google.com/maps/place/Dhesi+Meat+Shop+72+Ave/@49.1333782,-122.8219094,530m/data=!3m2!1e3!4b1!4m6!3m5!1s0x5485db0003a2c625:0xf088116722803a19!8m2!3d49.1333782!4d-122.8219094!16s%2Fg%2F11w4trwwrq?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoASAFQAw%3D%3D`;
+  const GOOGLE_MAPS_LINK = `https://www.google.com/maps/place/Dhesi+Meat+Shop/@49.1590513,-122.7809516,530m/data=!3m2!1e3!4b1!4m6!3m5!1s0x5485d0b1e8276a0f:0x282c078e612d585a!8m2!3d49.1590513!4d-122.7809516!16s%2Fg%2F1hc1m04ws?entry=ttu&g_ep=EgoyMDI2MDIwMS4wIKXMDSoASAFQAw%3D%3D`;
+
+  const premiumInput =
+    "w-full bg-[#141414] text-white placeholder:text-gray-500 \
+  border border-white/10 rounded-xl px-4 pt-5 pb-3 \
+  transition-all duration-300 \
+  shadow-[inset_0_1px_1px_rgba(255,255,255,0.04)] \
+  focus:outline-none focus:border-[#D4AF37]/70 \
+  focus:ring-2 focus:ring-[#D4AF37]/20 \
+  hover:border-white/20";
 
   const [values, setValues] = useState({
     firstName: "",
@@ -25,7 +34,7 @@ const ContactSection = () => {
     message: "",
   });
   const [showPopup, setShowPopup] = useState(false);
-
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const validateField = (name: string, value: string) => {
@@ -105,20 +114,18 @@ const ContactSection = () => {
     if (Object.keys(newErrors).length > 0) return;
 
     try {
+      setIsSubmitting(true);
+
       const res = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
       });
 
-      if (!res.ok) throw new Error("Failed to submit");
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || "Failed to submit");
 
-      // Show success popup
       setShowPopup(true);
-
-      // Reset form
       setValues({
         firstName: "",
         lastName: "",
@@ -128,6 +135,9 @@ const ContactSection = () => {
       });
     } catch (error) {
       alert("Something went wrong. Please try again.");
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -136,7 +146,7 @@ const ContactSection = () => {
       <NavBar />
       <div className="border-t border-gray-500/90" />
       <section className="w-full bg-black text-white py-20 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 mt-10">
           {/* LEFT CONTENT */}
           <div className="md:text-center lg:text-start">
             <h2 className="font-satoshi text-3xl md:text-5xl font-bold leading-tight">
@@ -218,6 +228,7 @@ const ContactSection = () => {
                   height="280"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
+                  className="group-hover:scale-105 transition-transform duration-700"
                 />
 
                 {/* Open in Google Maps Button */}
@@ -249,11 +260,22 @@ const ContactSection = () => {
           </div>
 
           {/* RIGHT FORM */}
-          <form className="space-y-6" onSubmit={handleSubmit}>
+          <form
+            className="
+    space-y-6
+    bg-linear-to-b from-white/5 to-transparent
+    backdrop-blur-xl
+    border border-white/10
+    rounded-3xl
+    p-8
+    shadow-[0_20px_60px_rgba(0,0,0,0.6)]
+  "
+            onSubmit={handleSubmit}
+          >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {["firstName", "lastName"].map((field, i) => (
                 <div key={field}>
-                  <label className="text-sm mb-2 block">
+                  <label className="text-xs uppercase tracking-widest text-gray-400 mb-2 block">
                     {i === 0 ? "First Name" : "Last Name"}
                   </label>
                   <input
@@ -262,10 +284,13 @@ const ContactSection = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     placeholder={i === 0 ? "First Name" : "Last Name"}
-                    className="w-full bg-[#1A1A1A] border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-gray-300/60"
+                    className={`${premiumInput} ${isSubmitting ? "opacity-60 pointer-events-none" : ""}`}
+                    disabled={isSubmitting}
                   />
                   {errors[field] && (
-                    <p className="text-red-500 text-sm mt-1">{errors[field]}</p>
+                    <p className="text-[#D4AF37] text-xs mt-1 tracking-wide">
+                      {errors[field]}
+                    </p>
                   )}
                 </div>
               ))}
@@ -273,39 +298,51 @@ const ContactSection = () => {
 
             {/* EMAIL */}
             <div>
-              <label className="text-sm mb-2 block">Email</label>
+              <label className="text-xs uppercase tracking-widest text-gray-400 mb-2 block">
+                Email
+              </label>
               <input
                 name="email"
                 value={values.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 placeholder="you@gmail.com"
-                className="w-full bg-[#1A1A1A] border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-gray-300/60"
+                className={`${premiumInput} ${isSubmitting ? "opacity-60 pointer-events-none" : ""}`}
+                disabled={isSubmitting}
               />
               {errors.email && (
-                <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                <p className="text-[#D4AF37] text-xs mt-1 tracking-wide">
+                  {errors.email}
+                </p>
               )}
             </div>
 
             {/* PHONE */}
             <div>
-              <label className="text-sm mb-2 block">Phone</label>
+              <label className="text-xs uppercase tracking-widest text-gray-400 mb-2 block">
+                Phone
+              </label>
               <input
                 name="phone"
                 value={values.phone}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 placeholder="Your Phone Number"
-                className="w-full bg-[#1A1A1A] border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-gray-300/60"
+                className={`${premiumInput} ${isSubmitting ? "opacity-60 pointer-events-none" : ""}`}
+                disabled={isSubmitting}
               />
               {errors.phone && (
-                <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+                <p className="text-[#D4AF37] text-xs mt-1 tracking-wide">
+                  {errors.phone}
+                </p>
               )}
             </div>
 
             {/* MESSAGE */}
             <div>
-              <label className="text-sm mb-2 block">Message</label>
+              <label className="text-xs uppercase tracking-widest text-gray-400 mb-2 block">
+                Message
+              </label>
               <textarea
                 name="message"
                 rows={5}
@@ -313,19 +350,49 @@ const ContactSection = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 placeholder="Leave Us Message"
-                className="w-full bg-[#1A1A1A] border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-gray-300/60"
+                className={`${premiumInput} resize-none ${isSubmitting ? "opacity-60 pointer-events-none" : ""}`}
+                disabled={isSubmitting}
               />
               {errors.message && (
-                <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+                <p className="text-[#D4AF37] text-xs mt-1 tracking-wide">
+                  {errors.message}
+                </p>
               )}
             </div>
 
-            <PrimaryButton
-              primaryColor="#d4a64a"
-              text="SUBMIT"
-              className="uppercase tracking-wider cursor-pointer px-8 py-3"
-              gradientToWhite={true}
-            />
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className={`
+    relative overflow-hidden
+      px-8 py-3
+    rounded-md
+   
+    uppercase tracking-widest font-semibold
+    transition-all duration-300
+    ${
+      isSubmitting
+        ? "bg-[#D4AF37]/80 cursor-not-allowed"
+        : "bg-linear-to-r from-[#B38934] cursor-pointer to-[#E8CC7B] transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-lg hover:brightness-120 active:translate-y-0 active:shadow-md shadow-xs shadow-[#B38934]/40"
+    }
+  `}
+            >
+              {/* Shimmer */}
+              {isSubmitting && (
+                <span className="absolute inset-0 animate-shimmer bg-linear-to-r from-transparent via-white/30 to-transparent" />
+              )}
+
+              <span className="relative flex items-center justify-center gap-3 text-black">
+                {isSubmitting ? (
+                  <>
+                    <span className="h-4 w-4 rounded-full border-2 border-black/40 border-t-black animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  "Submit"
+                )}
+              </span>
+            </button>
           </form>
         </div>
       </section>

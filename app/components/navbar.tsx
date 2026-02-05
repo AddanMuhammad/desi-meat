@@ -13,7 +13,7 @@ export const NavBar = () => {
       : "text-xs md:text-sm text-gray-300 hover:text-white transition-colors";
 
   return (
-    <div className="hidden lg:block">
+    <div className="hidden lg:block fixed w-full z-100">
       <nav className="relative z-10 flex items-center justify-between px-4 md:px-10 py-4">
         {/* Logo */}
         <Link href={"/"}>

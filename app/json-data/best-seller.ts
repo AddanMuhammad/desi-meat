@@ -7,66 +7,59 @@ interface bestSellerCard {
     isPrimary: boolean;
   };
   img_url: string;
-  price: number;
-  time: string;
-  status: string;
+  detail: string;
 }
 
 export const bestSellerData: bestSellerCard[] = [
   {
-    title: "Mutton Leg",
+    title: "Tandoori Chicken",
     description:
-      "The top choice among all our customers, delicious, healthy and a part of an amazing breakfast!",
+      "Smoky, juicy tandoori chicken marinated in traditional spices and grilled to perfection.",
     button: {
       text: "Order Online",
       isGradient: true,
       isPrimary: true,
     },
-    img_url: "/images/mutton-leg.png",
-    price: 15,
-    time: "30 min",
-    status: "445 kkl",
+    img_url: "/images/tandoori-chicken.jpg",
+    detail: "See More",
   },
+
   {
-    title: "Lamb Shoulder",
+    title: "Peri Peri Chicken",
     description:
-      "The top choice among all our customers, delicious, healthy and a part of an amazing breakfast!",
+      "Spicy and tangy peri peri chicken packed with bold flavors and a fiery kick.",
     button: {
       text: "Order Online",
       isGradient: true,
       isPrimary: true,
     },
-    img_url: "/images/lamb-shoulder.png",
-    price: 15,
-    time: "30 min",
-    status: "445 kkl",
+    img_url: "/images/peri-peri-chicken.jpg",
+    detail: "See More",
   },
+
   {
-    title: "Full Chicken",
+    title: "Lamb Chops",
     description:
-      "The top choice among all our customers, delicious, healthy and a part of an amazing breakfast!",
+      "Tender, juicy lamb chops seasoned with aromatic herbs and grilled to mouth-watering perfection.",
     button: {
       text: "Order Online",
       isGradient: true,
       isPrimary: true,
     },
-    img_url: "/images/chicken-roast.png",
-    price: 15,
-    time: "30 min",
-    status: "445 kkl",
+    img_url: "/images/lamb-chops.jpg",
+    detail: "See More",
   },
+
   {
-    title: "Chicken Leg",
+    title: "Fish Basa",
     description:
-      "The top choice among all our customers, delicious, healthy and a part of an amazing breakfast!",
+      "Soft and flaky basa fish fillet, lightly seasoned and cooked for a fresh, delicate taste.",
     button: {
       text: "Order Online",
       isGradient: true,
       isPrimary: true,
     },
-    img_url: "/images/chicken-legs.png",
-    price: 15,
-    time: "30 min",
-    status: "445 kkl",
+    img_url: "/images/fish-basa.jpg",
+    detail: "See More",
   },
 ];

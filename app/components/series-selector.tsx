@@ -17,7 +17,7 @@ export const SeriesSelector = () => {
 
         <p className="series-subtitle text-sm sm:text-base font-bold text-white">
           Dhesi Meat{" "}
-          <span className="font-light">– What's your purpose today</span>
+          <span className="font-light">– What's your protein need today</span>
         </p>
       </div>
 
@@ -66,7 +66,7 @@ export const SeriesSelector = () => {
               <img
                 src={card.img_url}
                 alt={card.title}
-                className="max-w-full max-h-full object-contain"
+                className="max-w-full max-h-full object-contain rounded-lg"
               />
             </div>
           </div>
