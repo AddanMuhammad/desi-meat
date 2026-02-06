@@ -4,8 +4,6 @@ interface MenuItem {
   description: string;
   image_url: string;
   images: string[];
-  time: string;
-  status: string;
 }
 
 interface MenuType {
@@ -43,8 +41,6 @@ export const menuData: MenuCategory[] = [
             "/images/menu/chicken/chicken3.png",
             "/images/menu/chicken/chicken4.png",
           ],
-          time: "30 min",
-          status: "445 kkl",
         },
       },
       {
@@ -62,8 +58,6 @@ export const menuData: MenuCategory[] = [
             "/images/menu/chicken/marinated-chicken3.png",
             "/images/menu/chicken/marinated-chicken1.png",
           ],
-          time: "30 min",
-          status: "445 kkl",
         },
       },
       {
@@ -81,27 +75,23 @@ export const menuData: MenuCategory[] = [
             "/images/menu/chicken/chicken-wings3.png",
             "/images/menu/chicken/chicken-wings4.png",
           ],
-          time: "30 min",
-          status: "445 kkl",
         },
       },
       {
-        id: "cooked",
-        name: "Cooked",
+        id: "marinated-breast",
+        name: "Marinated Breast",
         icon: "/icons/chicken.svg",
         items: {
-          id: "cooked-1",
-          name: "Chicken Breast",
+          id: "marinated-breast-1",
+          name: "Marinated Chicken Breast",
           description:
             "The top choice among all our customers, delicious, healthy and a part of an amazing breakfast!",
-          image_url: "/images/menu/chicken/cooked-chicken1.png",
+          image_url: "/images/menu/chicken/marinated-chicken-breast1.png",
           images: [
-            "/images/menu/chicken/cooked-chicken2.png",
-            "/images/menu/chicken/cooked-chicken3.png",
-            "/images/menu/chicken/cooked-chicken4.png",
+            "/images/menu/chicken/marinated-chicken-breast2.png",
+            "/images/menu/chicken/marinated-chicken-breast3.png",
+            "/images/menu/chicken/marinated-chicken-breast4.png",
           ],
-          time: "30 min",
-          status: "445 kkl",
         },
       },
     ],
@@ -125,8 +115,6 @@ export const menuData: MenuCategory[] = [
             "/images/menu/lamb/raw-lamb-cuts3.png",
             "/images/menu/lamb/raw-lamb-cuts4.png",
           ],
-          time: "30 min",
-          status: "445 kkl",
         },
       },
       {
@@ -143,8 +131,6 @@ export const menuData: MenuCategory[] = [
             "/images/menu/lamb/marinated-lamb3.png",
             "/images/menu/lamb/marinated-lamb4.png",
           ],
-          time: "30 min",
-          status: "445 kkl",
         },
       },
       {
@@ -161,8 +147,6 @@ export const menuData: MenuCategory[] = [
             "/images/menu/lamb/deer-meat3.png",
             "/images/menu/lamb/deer-meat4.png",
           ],
-          time: "30 min",
-          status: "445 kkl",
         },
       },
     ],
@@ -186,8 +170,6 @@ export const menuData: MenuCategory[] = [
             "/images/menu/goat/goat3.png",
             "/images/menu/goat/goat4.png",
           ],
-          time: "30 min",
-          status: "445 kkl",
         },
       },
     ],
@@ -211,8 +193,6 @@ export const menuData: MenuCategory[] = [
             "/images/menu/fish/fish3.png",
             "/images/menu/fish/fish4.png",
           ],
-          time: "30 min",
-          status: "445 kkl",
         },
       },
     ],
@@ -236,8 +216,6 @@ export const menuData: MenuCategory[] = [
             "/images/menu/sausage/sausage3.png",
             "/images/menu/sausage/sausage4.png",
           ],
-          time: "30 min",
-          status: "445 kkl",
         },
       },
       {
@@ -254,8 +232,6 @@ export const menuData: MenuCategory[] = [
             "/images/menu/soup/soup3.png",
             "/images/menu/soup/soup4.png",
           ],
-          time: "30 min",
-          status: "445 kkl",
         },
       },
     ],
@@ -280,8 +256,6 @@ export const menuData: MenuCategory[] = [
             "/images/menu/veg/veg3.png",
             "/images/menu/veg/veg4.png",
           ],
-          time: "30 min",
-          status: "445 kkl",
         },
       },
       {
@@ -299,8 +273,6 @@ export const menuData: MenuCategory[] = [
             "/images/menu/soya/soya3.png",
             "/images/menu/soya/soya4.png",
           ],
-          time: "30 min",
-          status: "445 kkl",
         },
       },
     ],
@@ -326,8 +298,6 @@ export const menuData: MenuCategory[] = [
             "/images/menu/sauce/sauce3.jpg",
             "/images/menu/sauce/sauce4.jpg",
           ],
-          time: "30 min",
-          status: "445 kkl",
         },
       },
       {
@@ -345,8 +315,6 @@ export const menuData: MenuCategory[] = [
             "/images/menu/sauce/tartar3.png",
             "/images/menu/sauce/tartar4.jpeg",
           ],
-          time: "30 min",
-          status: "445 kkl",
         },
       },
     ],

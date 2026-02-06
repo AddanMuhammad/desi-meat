@@ -142,9 +142,11 @@ export const BestSeller = () => {
                 </p>
 
                 <div className="flex items-center justify-between mt-4">
-                  <span className="text-lg sm:text-base bg-linear-to-l p-0.5 from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent font-light italic">
-                    {card.detail}
-                  </span>
+                  <a href="https://dhesimeats.restaurantsolutions.ca/">
+                    <span className="text-lg sm:text-base bg-linear-to-l p-0.5 from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent font-light italic">
+                      {card.detail}
+                    </span>
+                  </a>
 
                   <PrimaryButton
                     primaryColor="#d4a64a"

@@ -41,6 +41,21 @@ import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 export async function POST(request: NextRequest) {
+  console.log("GMAIL_USER exists:", !!process.env.GMAIL_USER);
+  console.log("GMAIL_APP_PASSWORD exists:", !!process.env.GMAIL_APP_PASSWORD);
+
+  if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+    console.error("Missing environment variables in Vercel");
+    return NextResponse.json(
+      {
+        success: false,
+        error:
+          "Server configuration error. Please check environment variables.",
+      },
+      { status: 500 },
+    );
+  }
+
   try {
     const { firstName, lastName, email, phone, message } = await request.json();
 
