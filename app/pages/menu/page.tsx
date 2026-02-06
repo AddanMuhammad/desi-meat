@@ -400,14 +400,14 @@ export default function MenuPage() {
                                   placeholder="blur"
                                   blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                                 />
-                                <div className="absolute top-3 left-3 flex gap-2 z-10">
+                                {/* <div className="absolute top-3 left-3 flex gap-2 z-10">
                                   <span className="text-xs bg-white/5 backdrop-blur text-white px-2 py-1 rounded-md border border-white/20">
                                     {currentItems?.time}
                                   </span>
                                   <span className="text-xs bg-white/5 backdrop-blur text-white px-2 py-1 rounded-md border border-white/20">
                                     {currentItems?.status}
                                   </span>
-                                </div>
+                                </div> */}
                               </>
                             )}
                           </div>
@@ -425,9 +425,12 @@ export default function MenuPage() {
 
                         {/* Footer */}
                         <div className="flex items-center justify-between p-4">
-                          <span className="text-lg sm:text-xl bg-linear-to-l p-0.5 from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent font-light italic">
-                            See More
-                          </span>
+                          <a href="https://dhesimeats.restaurantsolutions.ca/">
+                            <span className="text-lg sm:text-xl bg-linear-to-l p-0.5 from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent font-light italic">
+                              See More
+                            </span>
+                          </a>
+
                           <PrimaryButton
                             primaryColor="#d4a64a"
                             text="Order Online"

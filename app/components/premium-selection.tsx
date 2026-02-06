@@ -1,20 +1,30 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { premiumSelection } from "../json-data/premium-selection";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { YellowGlow } from "./ui/yellow-glow";
 
 gsap.registerPlugin(ScrollTrigger);
+const imageCache = new Map<string, HTMLImageElement>();
 
 export const PerimumSeriesSelector = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(0);
+
   const selectedIndexRef = useRef<number | null>(0);
   const sectionRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const descriptionRefs = useRef<(HTMLParagraphElement | null)[]>([]);
   const arrowRefs = useRef<(HTMLImageElement | null)[]>([]);
   const imageRef = useRef<HTMLImageElement>(null);
+  const leftContentRef = useRef<HTMLDivElement>(null);
+  const rightImageRef = useRef<HTMLDivElement>(null);
+
+  const selectedItem = useMemo(
+    () =>
+      selectedIndex !== null ? premiumSelection[selectedIndex] : undefined,
+    [selectedIndex],
+  );
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -26,19 +36,45 @@ export const PerimumSeriesSelector = () => {
           toggleActions: "play reverse play reverse",
         },
       });
-      tl.from(".premium-title", { y: 40, opacity: 0, duration: 0.8 })
+
+      // Title animation
+      tl.from(".premium-title", {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+      })
+        // Left content animates from LEFT
         .from(
-          ".premium-content",
-          { x: -50, opacity: 0, duration: 0.7 },
+          leftContentRef.current,
+          {
+            x: -50,
+            opacity: 0,
+            duration: 0.7,
+          },
           "-=0.5",
         )
-        .from(".premium-image", { x: 50, opacity: 0, duration: 0.7 }, "-=0.5");
+        // Right image animates from RIGHT
+        .from(
+          rightImageRef.current,
+          {
+            x: 50,
+            opacity: 0,
+            duration: 0.7,
+          },
+          "-=0.5",
+        );
     }, sectionRef);
     return () => ctx.revert();
   }, []);
+
+  const handleSelect = useCallback((index: number) => {
+    setSelectedIndex(index);
+  }, []);
+
   useEffect(() => {
     selectedIndexRef.current = selectedIndex;
   }, [selectedIndex]);
+
   useEffect(() => {
     cardRefs.current.forEach((card, index) => {
       if (!card) return;
@@ -70,18 +106,31 @@ export const PerimumSeriesSelector = () => {
       };
     });
   }, []);
+
+  useEffect(() => {
+    premiumSelection.forEach((item) => {
+      if (!imageCache.has(item.preview_img)) {
+        const img = new Image();
+        img.src = item.preview_img;
+        imageCache.set(item.preview_img, img);
+      }
+    });
+  }, []);
+
   useEffect(() => {
     premiumSelection.forEach((_, index) => {
       const card = cardRefs.current[index];
       const description = descriptionRefs.current[index];
       const arrow = arrowRefs.current[index];
       const isSelected = selectedIndex === index;
+
       if (card) {
         gsap.to(card, {
           backgroundColor: isSelected ? "rgba(179,137,52,0.3)" : "transparent",
           duration: 0.3,
         });
       }
+
       if (description) {
         if (isSelected) {
           gsap.set(description, { height: "auto" });
@@ -99,6 +148,7 @@ export const PerimumSeriesSelector = () => {
           gsap.to(description, { height: 0, opacity: 0, duration: 0.3 });
         }
       }
+
       if (arrow) {
         gsap.to(arrow, { rotation: isSelected ? 180 : 0, duration: 0.3 });
       }
@@ -110,8 +160,8 @@ export const PerimumSeriesSelector = () => {
 
     gsap.fromTo(
       imageRef.current,
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
+      { opacity: 0, scale: 0.95 },
+      { opacity: 1, scale: 1, duration: 0.5, ease: "power2.out" },
     );
   }, [selectedIndex]);
 
@@ -149,7 +199,10 @@ export const PerimumSeriesSelector = () => {
         {/* Layout */}
         <div className="flex flex-col lg:flex-row gap-6 xl:gap-10 items-stretch">
           {/* Left Cards */}
-          <div className="premium-content w-full lg:w-1/2 border border-[#2f2f2f] rounded-2xl p-4 sm:p-6 bg-[#191919] shadow-lg space-y-2">
+          <div
+            ref={leftContentRef}
+            className="premium-content w-full lg:w-1/2 border border-[#2f2f2f] rounded-2xl p-4 sm:p-6 bg-[#191919] shadow-lg space-y-2"
+          >
             {premiumSelection.map((card, index) => {
               const isSelected = selectedIndex === index;
 
@@ -159,7 +212,7 @@ export const PerimumSeriesSelector = () => {
                   ref={(el) => {
                     cardRefs.current[index] = el;
                   }}
-                  onClick={() => setSelectedIndex(index)}
+                  onClick={() => handleSelect(index)}
                   className={`p-4 sm:p-5 rounded-lg cursor-pointer transition-colors ${
                     isSelected
                       ? "bg-linear-to-r from-[#B38934] to-[#e6ca79]"
@@ -211,7 +264,10 @@ export const PerimumSeriesSelector = () => {
           </div>
 
           {/* Right Image */}
-          <div className="w-full lg:w-1/2 flex justify-center">
+          <div
+            ref={rightImageRef}
+            className="w-full lg:w-1/2 flex justify-center"
+          >
             <img
               ref={imageRef}
               src={
@@ -228,6 +284,8 @@ export const PerimumSeriesSelector = () => {
       object-cover
       rounded-xl
     "
+              loading="eager"
+              decoding="async"
             />
           </div>
         </div>

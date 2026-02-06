@@ -170,21 +170,20 @@ const SubFooter = () => {
 
         <div className="relative lg:w-172.5 z-10 flex flex-col h-full mt-15">
           {/* Text content */}
-          <div className="relative z-10 max-w-3xl space-y-4 px-8 md:px-24">
+          <div className="relative z-10 max-w-3xl space-y mb-4 px-8 md:px-24">
             <h1 className="font-satoshi subfooter-title text-3xl md:text-5xl font-bold leading-tight text-white drop-shadow-lg">
               Elevate Protein With{" "}
               <span className="font-clearface italic p-1 bg-linear-to-l from-[#B38934] to-[#E8CC7B] bg-clip-text text-transparent font-light">
                 Other Local Fresh Meat.
               </span>
-              <br />
             </h1>
-            <p className="subfooter-desc text-sm md:text-base text-gray-200 mt-5 drop-shadow">
+            {/* <p className="subfooter-desc text-sm md:text-base text-gray-200 mt-5 drop-shadow">
               Pure olive oil packed with 800+ mg/kg polyphenols to support heart
               health and longevity.
-            </p>
+            </p> */}
           </div>
 
-          <div className="relative z-10 max-w-3xl space-y-4 px-8 md:px-24 mt-15 mb-10 lg:mb-20">
+          <div className="relative z-10 max-w-3xl space-y-4 px-8 md:px-24 mt-8 mb-10 lg:mb-20">
             <p className="subfooter-benefits-title text-sm md:text-2xl font-bold leading-tight text-white drop-shadow">
               BENEFITS OF A SUBSCRIPTION
             </p>

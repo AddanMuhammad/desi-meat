@@ -87,7 +87,14 @@ const Footer = ({ cl = "" }: { cl?: string }) => {
 
         {/* COPYRIGHT */}
         <div className="mt-8 lg:mt-14 text-center text-xs text-gray-500">
-          Copyright © 2025 All rights reserved. Powered by Easy To Scale Inc.
+          Copyright © 2025 All rights reserved. Powered by{" "}
+          <a
+            href="https://easytoscale.com/"
+            target="_blank"
+            className="text-gray-400 hover:text-white"
+          >
+            Easy To Scale Inc.
+          </a>
         </div>
       </div>
     </footer>
