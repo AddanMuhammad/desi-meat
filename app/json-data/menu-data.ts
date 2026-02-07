@@ -34,7 +34,7 @@ export const menuData: MenuCategory[] = [
           id: "whole-chicken-1",
           name: "Whole Chicken Fresh",
           description:
-            "The top choice among all our customers, delicious, healthy and a part of an amazing breakfast!",
+            "Fresh whole chicken, cleaned and ready for cooking. Ideal for curries, roasts, and grilling.",
           image_url: "/images/menu/chicken/chicken1.png",
           images: [
             "/images/menu/chicken/chicken2.png",
@@ -51,7 +51,7 @@ export const menuData: MenuCategory[] = [
           id: "marintaed-chicken-1",
           name: "Chicken Breast",
           description:
-            "The top choice among all our customers, delicious, healthy and a part of an amazing breakfast!",
+            "Tender chicken breast marinated with mild spices, perfect for grilling or pan-frying.",
           image_url: "/images/menu/chicken/marinated-chicken2.png",
           images: [
             "/images/menu/chicken/marinated-chicken4.png",
@@ -68,7 +68,7 @@ export const menuData: MenuCategory[] = [
           id: "chicken-wings-1",
           name: "Chicken Breast",
           description:
-            "The top choice among all our customers, delicious, healthy and a part of an amazing breakfast!",
+            "Juicy chicken wings, perfect for frying, baking, or spicy marinades.",
           image_url: "/images/menu/chicken/chicken-wings1.png",
           images: [
             "/images/menu/chicken/chicken-wings2.png",
@@ -85,7 +85,7 @@ export const menuData: MenuCategory[] = [
           id: "marinated-breast-1",
           name: "Marinated Chicken Breast",
           description:
-            "The top choice among all our customers, delicious, healthy and a part of an amazing breakfast!",
+            "Boneless chicken breast marinated in flavorful spices for quick and tasty meals.",
           image_url: "/images/menu/chicken/marinated-chicken-breast1.png",
           images: [
             "/images/menu/chicken/marinated-chicken-breast2.png",
@@ -108,7 +108,8 @@ export const menuData: MenuCategory[] = [
         items: {
           id: "lamb-chop-1",
           name: "Raw Lamb Cuts",
-          description: "Premium quality lamb chops",
+          description:
+            "Fresh raw lamb cuts, ideal for curries, slow cooking, and traditional recipes.",
           image_url: "/images/menu/lamb/raw-lamb-cuts1.png",
           images: [
             "/images/menu/lamb/raw-lamb-cuts2.png",
@@ -124,7 +125,8 @@ export const menuData: MenuCategory[] = [
         items: {
           id: "lamb-cut-1",
           name: "Marinated Lamb",
-          description: "Whole lamb leg",
+          description:
+            "Succulent lamb marinated with aromatic spices, ready to cook.",
           image_url: "/images/menu/lamb/marinated-lamb1.png",
           images: [
             "/images/menu/lamb/marinated-lamb2.png",
@@ -140,7 +142,8 @@ export const menuData: MenuCategory[] = [
         items: {
           id: "lamb-boneless-1",
           name: "Deer Meat",
-          description: "Boneless lamb cubes for curry and stew",
+          description:
+            "Lean and flavorful deer meat, cut into boneless pieces for curries and stews.",
           image_url: "/images/menu/lamb/deer-meat1.png",
           images: [
             "/images/menu/lamb/deer-meat2.png",
@@ -163,7 +166,8 @@ export const menuData: MenuCategory[] = [
         items: {
           id: "goat-cut-1",
           name: "Raw Goat Cubes",
-          description: "Whole goat leg",
+          description:
+            "Fresh goat meat cut into cubes, perfect for curries and slow-cooked dishes.",
           image_url: "/images/menu/goat/goat1.png",
           images: [
             "/images/menu/goat/goat2.png",
@@ -186,7 +190,8 @@ export const menuData: MenuCategory[] = [
         items: {
           id: "fish-1",
           name: "Bassa",
-          description: "Fresh Bassa fish, cleaned and ready",
+          description:
+            "Fresh bassa fish fillets, cleaned and ready for cooking.",
           image_url: "/images/menu/fish/fish1.png",
           images: [
             "/images/menu/fish/fish2.png",
@@ -209,7 +214,8 @@ export const menuData: MenuCategory[] = [
         items: {
           id: "sausage-1",
           name: "Lamb Sausages",
-          description: "Classic seasoned Lamb Sausages",
+          description:
+            "Classic seasoned lamb sausages, juicy and full of flavor.",
           image_url: "/images/menu/sausage/sausage1.png",
           images: [
             "/images/menu/sausage/sausage2.png",
@@ -225,7 +231,8 @@ export const menuData: MenuCategory[] = [
         items: {
           id: "soup-1",
           name: "Goat Paya Soup",
-          description: "Comforting chicken and sweet corn soup",
+          description:
+            "Rich and nourishing goat paya soup, slow-cooked for deep flavor.",
           image_url: "/images/menu/soup/soup1.png",
           images: [
             "/images/menu/soup/soup2.png",
@@ -249,7 +256,7 @@ export const menuData: MenuCategory[] = [
           id: "paneer-tikka",
           name: "Paneer Tikka",
           description:
-            "Paneer marinated in spiced yogurt and grilled in a Tandoor, a traditional clay oven",
+            "Soft paneer cubes marinated in spiced yogurt and grilled to perfection.",
           image_url: "/images/menu/veg/veg1.png",
           images: [
             "/images/menu/veg/veg2.png",
@@ -266,7 +273,7 @@ export const menuData: MenuCategory[] = [
           id: "soya-chaap-1",
           name: "Soya Chaap",
           description:
-            "high-protein meat substitute made from soybean and flour dough wrapped around wooden sticks",
+            "High-protein soya chaap marinated and ready for grilling or curry preparation.",
           image_url: "/images/menu/soya/soya1.png",
           images: [
             "/images/menu/soya/soya2.png",
@@ -291,7 +298,7 @@ export const menuData: MenuCategory[] = [
           id: "green-chutney",
           name: "Green Chutney",
           description:
-            "Fresh and flavorful green chutney. Accompaniments are available in small and large sizes.",
+            "Freshly prepared green chutney with herbs and spices, perfect as a dip or accompaniment.",
           image_url: "/images/menu/sauce/sauce1.jpg",
           images: [
             "/images/menu/sauce/sauce2.jpg",
@@ -308,7 +315,7 @@ export const menuData: MenuCategory[] = [
           id: "tartar-sauce",
           name: "Tartar Sauce",
           description:
-            "Creamy tartar sauce with a tangy flavor. Accompaniments are available in small and large sizes.",
+            "Creamy tartar sauce with a tangy flavor, ideal with fish and fried snacks.",
           image_url: "/images/menu/sauce/tartar1.png",
           images: [
             "/images/menu/sauce/tartar2.png",
