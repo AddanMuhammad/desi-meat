@@ -153,7 +153,7 @@ export default function MenuPage() {
   return (
     <div className="bg-[#0a0a0a] text-white">
       <NavBar />
-      <div className="border-t border-gray-500/90" />
+      <div className="border-t border-gray-500/90 lg:py-10" />
 
       {/* PAGE TITLE */}
       <h2 className="font-satoshi p-3 text-center text-3xl font-bold sm:text-4xl lg:text-5xl">

@@ -20,11 +20,22 @@ export const PerimumSeriesSelector = () => {
   const leftContentRef = useRef<HTMLDivElement>(null);
   const rightImageRef = useRef<HTMLDivElement>(null);
 
-  const selectedItem = useMemo(
-    () =>
-      selectedIndex !== null ? premiumSelection[selectedIndex] : undefined,
-    [selectedIndex],
-  );
+  const loadImage = (src: string) =>
+    new Promise<HTMLImageElement>((resolve) => {
+      const cached = imageCache.get(src);
+      if (cached && cached.complete) {
+        resolve(cached);
+        return;
+      }
+
+      const img = cached ?? new Image();
+      img.src = src;
+
+      img.onload = () => {
+        imageCache.set(src, img);
+        resolve(img);
+      };
+    });
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -158,11 +169,41 @@ export const PerimumSeriesSelector = () => {
   useEffect(() => {
     if (!imageRef.current || selectedIndex === null) return;
 
-    gsap.fromTo(
-      imageRef.current,
-      { opacity: 0, scale: 0.95 },
-      { opacity: 1, scale: 1, duration: 0.5, ease: "power2.out" },
-    );
+    const imgEl = imageRef.current;
+    const nextSrc = premiumSelection[selectedIndex].preview_img;
+
+    const tl = gsap.timeline();
+
+    // Animate current image OUT
+    tl.to(imgEl, {
+      opacity: 0,
+      scale: 0.97,
+      y: 10,
+      duration: 0.35,
+      ease: "power2.in",
+    });
+
+    // Load next image BEFORE switching
+    loadImage(nextSrc).then(() => {
+      imgEl.src = nextSrc;
+
+      // Animate new image IN
+      tl.fromTo(
+        imgEl,
+        { opacity: 0, scale: 1.03, y: -10 },
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          duration: 0.5,
+          ease: "power3.out",
+        },
+      );
+    });
+
+    return () => {
+      tl.kill();
+    };
   }, [selectedIndex]);
 
   return (

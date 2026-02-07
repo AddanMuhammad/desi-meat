@@ -81,3 +81,13 @@ body {
 .animate-shimmer {
   animation: shimmer 1.5s infinite;
 }
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer::before {
+  animation: shimmer 1.2s infinite;
+}
