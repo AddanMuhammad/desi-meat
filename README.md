@@ -3,7 +3,8 @@
 A comprehensive e-commerce application for meat products, built with Next.js 16, React 19, and Tailwind CSS 4. This project features a modern, responsive design with smooth GSAP animations.
 
 ![Website Preview](./public/website-preview.png)
-> *Note: Please add a screenshot of the website to `public/website-preview.png`.*
+
+> _Note: Please add a screenshot of the website to `public/images/website-preview.png`._
 
 ## Features
 
