@@ -240,7 +240,7 @@ const SubFooter = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {[
                 {
-                  icon: "/icons/subFooter1.svg",
+                  icon: "/icons/why-choose-us1.svg",
                   text: "Freshly cut after order",
                 },
                 {
