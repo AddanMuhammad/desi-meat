@@ -189,9 +189,8 @@ export const menuData: MenuCategory[] = [
         icon: "/icons/fish.png",
         items: {
           id: "fish-1",
-          name: "Bassa",
-          description:
-            "Marinated fish fillets, cleaned and ready for cooking.",
+          name: "Marinated Fish",
+          description: "Marinated fish fillets, cleaned and ready for cooking.",
           image_url: "/images/menu/fish/fish1.png",
           images: [
             "/images/menu/fish/fish2.png",
@@ -205,8 +204,8 @@ export const menuData: MenuCategory[] = [
         name: "Basa Fish",
         icon: "/icons/fish.png",
         items: {
-          id: "fish-1",
-          name: "Bassa",
+          id: "fish-2",
+          name: "Basa Fish",
           description:
             "Fresh basa fish fillets, cleaned and ready for cooking.",
           image_url: "/images/fish-basa.jpg",
@@ -222,8 +221,8 @@ export const menuData: MenuCategory[] = [
         name: "Salmon Fish",
         icon: "/icons/fish.png",
         items: {
-          id: "fish-1",
-          name: "Bassa",
+          id: "fish-3",
+          name: "Salmon Fish",
           description:
             "Fresh Salmon fish fillets, cleaned and ready for cooking.",
           image_url: "/images/menu/fish/salmon-fish1.jpg",
