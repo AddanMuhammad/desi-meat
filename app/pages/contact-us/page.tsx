@@ -179,8 +179,8 @@ const ContactSection = () => {
                     Phone
                   </p>
                   <p className="text-gray-400 text-start">Call us today</p>
-                  <p className="text-white text-start text-xs sm:text-sm md:text-lg">
-                    +1(555)000-0000
+                  <p className="text-white text-start text-xs ">
+                    +1(604)593-5222
                   </p>
                 </div>
               </div>
@@ -201,8 +201,8 @@ const ContactSection = () => {
                     <p className="text-gray-400 text-start">
                       Reach out anytime
                     </p>
-                    <p className="text-white text-start text-xs sm:text-sm  md:text-lg">
-                      Fleetwood, Surrey, BC
+                    <p className="text-white text-start text-xs ">
+                      15933 Fraser Hwy #104, <br /> Surrey, BC V4N 0Y3, Canada
                     </p>
                   </div>
                 </div>
