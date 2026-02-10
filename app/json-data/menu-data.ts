@@ -69,11 +69,11 @@ export const menuData: MenuCategory[] = [
           name: "Chicken Breast",
           description:
             "Juicy chicken wings, perfect for frying, baking, or spicy marinades.",
-          image_url: "/images/menu/chicken/chicken-wings1.png",
+          image_url: "/images/menu/chicken/chicken-wings1.jpeg",
           images: [
-            "/images/menu/chicken/chicken-wings2.png",
-            "/images/menu/chicken/chicken-wings3.png",
-            "/images/menu/chicken/chicken-wings4.png",
+            "/images/menu/chicken/chicken-wings2.jpeg",
+            "/images/menu/chicken/chicken-wings3.jpeg",
+            "/images/menu/chicken/chicken-wings4.jpeg",
           ],
         },
       },
@@ -191,12 +191,46 @@ export const menuData: MenuCategory[] = [
           id: "fish-1",
           name: "Bassa",
           description:
-            "Fresh bassa fish fillets, cleaned and ready for cooking.",
+            "Marinated fish fillets, cleaned and ready for cooking.",
           image_url: "/images/menu/fish/fish1.png",
           images: [
             "/images/menu/fish/fish2.png",
             "/images/menu/fish/fish3.png",
             "/images/menu/fish/fish4.png",
+          ],
+        },
+      },
+      {
+        id: "fish-basa",
+        name: "Basa Fish",
+        icon: "/icons/fish.png",
+        items: {
+          id: "fish-1",
+          name: "Bassa",
+          description:
+            "Fresh basa fish fillets, cleaned and ready for cooking.",
+          image_url: "/images/fish-basa.jpg",
+          images: [
+            "/images/menu/fish/fish-basa2.jpg",
+            "/images/menu/fish/fish-basa1.jpg",
+            "/images/menu/fish/fish-basa3.jpg",
+          ],
+        },
+      },
+      {
+        id: "salmon-fish",
+        name: "Salmon Fish",
+        icon: "/icons/fish.png",
+        items: {
+          id: "fish-1",
+          name: "Bassa",
+          description:
+            "Fresh Salmon fish fillets, cleaned and ready for cooking.",
+          image_url: "/images/menu/fish/salmon-fish1.jpg",
+          images: [
+            "/images/menu/fish/salmon-fish2.jpg",
+            "/images/menu/fish/salmon-fish3.jpg",
+            "/images/menu/fish/salmon-fish4.jpg",
           ],
         },
       },
