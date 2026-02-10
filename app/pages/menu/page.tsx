@@ -167,8 +167,8 @@ export default function MenuPage() {
         <div className="mx-3 sm:mx-6 lg:mx-6 2xl:mx-32">
           <div className="flex flex-col gap-6 lg:flex-row">
             {/* SIDEBAR */}
-            <div className="w-full lg:w-60">
-              <div className="rounded-xl border border-[#2f2f2f] bg-[#1b1b1b]/40 backdrop-blur-sm p-2 sm:p-4 lg:sticky lg:top-8 relative">
+            <div className="w-full lg:w-60 sticky top-17 z-10">
+              <div className="rounded-xl border border-[#2f2f2f] bg-[#1b1b1b] backdrop-blur-sm p-2 sm:p-4 lg:sticky lg:top-8 relative">
                 {showNavLeft && (
                   <button
                     onClick={() =>
@@ -266,8 +266,8 @@ export default function MenuPage() {
 
                 {/* TYPE SELECTOR */}
                 {selectedCategory.types.length > 0 && (
-                  <div className="flex justify-center items-center">
-                    <div className="mb-3 rounded-lg border overflow-hidden border-gray-500/30 bg-[#1b1b1b]/40 p-2 relative">
+                  <div className="flex justify-center items-center sticky top-35 md:top-40 lg:top-20 z-10">
+                    <div className="mb-3 rounded-lg border overflow-hidden  border-gray-500/30 bg-[#1b1b1b]  p-2 relative">
                       {showTypeLeft && (
                         <button
                           onClick={() =>

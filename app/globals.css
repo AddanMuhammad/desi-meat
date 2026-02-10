@@ -19,6 +19,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-work-sans);
+  scroll-behavior: smooth;
 }
 
 .font-satoshi {
@@ -90,4 +91,8 @@ body {
 
 .animate-shimmer::before {
   animation: shimmer 1.2s infinite;
+}
+
+.glass-card {
+  box-shadow: 0 0 40px rgba(255, 200, 0, 0.05);
 }

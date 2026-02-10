@@ -76,11 +76,32 @@ const Footer = ({ cl = "" }: { cl?: string }) => {
           {/* RIGHT – SUPPORT */}
           <div className="order-3 text-left md:text-right">
             <h4 className="font-semibold mb-5">Support</h4>
-            <ul className="space-y-3 text-sm">
+            {/* <ul className="space-y-3 text-sm">
               <li className="cursor-pointer">Privacy Policy</li>
+              <li className="cursor-pointer">Terms and Conditions</li>
               <li className="cursor-pointer">+1 604-593-5222</li>
-              <li className="cursor-pointer">Terms Of Service</li>
+
               <li className="cursor-pointer">Track Order</li>
+            </ul> */}
+            <ul className="space-y-3 text-sm">
+              {[
+                { label: "Privacy Policy", href: "/pages/privacy-policy" },
+                {
+                  label: "Terms and Conditions",
+                  href: "/pages/terms-and-conditions",
+                },
+                { label: "+1 604-593-5222", href: "#" },
+                // { label: "Blog Us", href: "/blog" },
+              ].map((item, i) => (
+                <li key={i}>
+                  <Link
+                    href={item.href}
+                    className="text-gray-400 hover:text-white hover:underline transition duration-300"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
