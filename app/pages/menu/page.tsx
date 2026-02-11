@@ -354,7 +354,7 @@ export default function MenuPage() {
 
                       <div
                         ref={typeScrollRef}
-                        className="flex gap-3 overflow-x-auto scrollbar-hide"
+                        className="flex gap-3 overflow-x-auto scrollbar-hide py-2 px-1"
                       >
                         {selectedCategory.types.map((type) => (
                           <button
