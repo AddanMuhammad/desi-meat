@@ -57,7 +57,10 @@ const Footer = ({ cl = "" }: { cl?: string }) => {
 
             <div className="flex gap-4">
               {[
-                { src: "/icons/instagram.svg", link: "https://instagram.com" },
+                {
+                  src: "/icons/instagram.svg",
+                  link: "https://www.instagram.com/dhesi_meat/",
+                },
                 { src: "/icons/facebook.svg", link: "https://facebook.com" },
                 { src: "/icons/tiktok.svg", link: "https://tiktok.com" },
               ].map((icon, i) => (

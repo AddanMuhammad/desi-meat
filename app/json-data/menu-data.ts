@@ -4,6 +4,7 @@ interface MenuItem {
   description: string;
   image_url: string;
   images: string[];
+  category: string;
 }
 
 interface MenuType {
@@ -36,6 +37,7 @@ export const menuData: MenuCategory[] = [
           description:
             "Fresh whole chicken, cleaned and ready for cooking. Ideal for curries, roasts, and grilling.",
           image_url: "/images/menu/chicken/chicken1.png",
+          category: "Non-Spicy",
           images: [
             "/images/menu/chicken/chicken2.png",
             "/images/menu/chicken/chicken3.png",
@@ -53,6 +55,7 @@ export const menuData: MenuCategory[] = [
           description:
             "Tender chicken breast marinated with mild spices, perfect for grilling or pan-frying.",
           image_url: "/images/menu/chicken/marinated-chicken2.png",
+          category: "Hot",
           images: [
             "/images/menu/chicken/marinated-chicken4.png",
             "/images/menu/chicken/marinated-chicken3.png",
@@ -70,6 +73,7 @@ export const menuData: MenuCategory[] = [
           description:
             "Juicy chicken wings, perfect for frying, baking, or spicy marinades.",
           image_url: "/images/menu/chicken/chicken-wings1.jpeg",
+          category: "Hot",
           images: [
             "/images/menu/chicken/chicken-wings2.jpeg",
             "/images/menu/chicken/chicken-wings3.jpeg",
@@ -87,6 +91,7 @@ export const menuData: MenuCategory[] = [
           description:
             "Boneless chicken breast marinated in flavorful spices for quick and tasty meals.",
           image_url: "/images/menu/chicken/marinated-chicken-breast1.png",
+          category: "Hot",
           images: [
             "/images/menu/chicken/marinated-chicken-breast2.png",
             "/images/menu/chicken/marinated-chicken-breast3.png",
@@ -111,6 +116,7 @@ export const menuData: MenuCategory[] = [
           description:
             "Fresh raw lamb cuts, ideal for curries, slow cooking, and traditional recipes.",
           image_url: "/images/menu/lamb/raw-lamb-cuts1.png",
+          category: "Non-Spicy",
           images: [
             "/images/menu/lamb/raw-lamb-cuts2.png",
             "/images/menu/lamb/raw-lamb-cuts3.png",
@@ -128,6 +134,7 @@ export const menuData: MenuCategory[] = [
           description:
             "Succulent lamb marinated with aromatic spices, ready to cook.",
           image_url: "/images/menu/lamb/marinated-lamb1.png",
+          category: "Hot",
           images: [
             "/images/menu/lamb/marinated-lamb2.png",
             "/images/menu/lamb/marinated-lamb3.png",
@@ -145,6 +152,7 @@ export const menuData: MenuCategory[] = [
           description:
             "Lean and flavorful deer meat, cut into boneless pieces for curries and stews.",
           image_url: "/images/menu/lamb/deer-meat1.png",
+          category: "Non-Spicy",
           images: [
             "/images/menu/lamb/deer-meat2.png",
             "/images/menu/lamb/deer-meat3.png",
@@ -169,6 +177,7 @@ export const menuData: MenuCategory[] = [
           description:
             "Fresh goat meat cut into cubes, perfect for curries and slow-cooked dishes.",
           image_url: "/images/menu/goat/goat1.png",
+          category: "Non-Spicy",
           images: [
             "/images/menu/goat/goat2.png",
             "/images/menu/goat/goat3.png",
@@ -192,6 +201,7 @@ export const menuData: MenuCategory[] = [
           name: "Marinated Fish",
           description: "Marinated fish fillets, cleaned and ready for cooking.",
           image_url: "/images/menu/fish/fish1.png",
+          category: "Hot",
           images: [
             "/images/menu/fish/fish2.png",
             "/images/menu/fish/fish3.png",
@@ -209,6 +219,7 @@ export const menuData: MenuCategory[] = [
           description:
             "Fresh basa fish fillets, cleaned and ready for cooking.",
           image_url: "/images/fish-basa.jpg",
+          category: "Medium",
           images: [
             "/images/menu/fish/fish-basa2.jpg",
             "/images/menu/fish/fish-basa1.jpg",
@@ -226,6 +237,7 @@ export const menuData: MenuCategory[] = [
           description:
             "Fresh Salmon fish fillets, cleaned and ready for cooking.",
           image_url: "/images/menu/fish/salmon-fish1.jpg",
+          category: "Flavor-Specific",
           images: [
             "/images/menu/fish/salmon-fish2.jpg",
             "/images/menu/fish/salmon-fish3.jpg",
@@ -250,6 +262,7 @@ export const menuData: MenuCategory[] = [
           description:
             "Classic seasoned lamb sausages, juicy and full of flavor.",
           image_url: "/images/menu/sausage/sausage1.png",
+          category: "Medium",
           images: [
             "/images/menu/sausage/sausage2.png",
             "/images/menu/sausage/sausage3.png",
@@ -267,6 +280,7 @@ export const menuData: MenuCategory[] = [
           description:
             "Rich and nourishing goat paya soup, slow-cooked for deep flavor.",
           image_url: "/images/menu/soup/soup1.png",
+          category: "Flavor-Specific",
           images: [
             "/images/menu/soup/soup2.png",
             "/images/menu/soup/soup3.png",
@@ -291,6 +305,7 @@ export const menuData: MenuCategory[] = [
           description:
             "Soft paneer cubes marinated in spiced yogurt and grilled to perfection.",
           image_url: "/images/menu/veg/veg1.png",
+          category: "Medium",
           images: [
             "/images/menu/veg/veg2.png",
             "/images/menu/veg/veg3.png",
@@ -308,6 +323,7 @@ export const menuData: MenuCategory[] = [
           description:
             "High-protein soya chaap marinated and ready for grilling or curry preparation.",
           image_url: "/images/menu/soya/soya1.png",
+          category: "Medium",
           images: [
             "/images/menu/soya/soya2.png",
             "/images/menu/soya/soya3.png",
@@ -333,6 +349,7 @@ export const menuData: MenuCategory[] = [
           description:
             "Freshly prepared green chutney with herbs and spices, perfect as a dip or accompaniment.",
           image_url: "/images/menu/sauce/sauce1.jpg",
+          category: "Flavor-Specific",
           images: [
             "/images/menu/sauce/sauce2.jpg",
             "/images/menu/sauce/sauce3.jpg",
@@ -350,6 +367,7 @@ export const menuData: MenuCategory[] = [
           description:
             "Creamy tartar sauce with a tangy flavor, ideal with fish and fried snacks.",
           image_url: "/images/menu/sauce/tartar1.png",
+          category: "Flavor-Specific",
           images: [
             "/images/menu/sauce/tartar2.png",
             "/images/menu/sauce/tartar3.png",
