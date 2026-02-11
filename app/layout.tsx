@@ -4,6 +4,8 @@ import "./globals.css";
 import { satoshi, itcClearface } from "./font";
 import { MobileBottomBar } from "./components/mobile-bottombar";
 import UpperNavbar from "./components/upper-navbar";
+import Analytics from "./components/analytics";
+import GAListener from "./components/GoogleAnalyticsRoute";
 
 const workSans = Work_Sans({
   variable: "--font-work-sans",
@@ -32,6 +34,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Analytics />
+      <GAListener />
       <body
         className={`
           ${satoshi.variable}

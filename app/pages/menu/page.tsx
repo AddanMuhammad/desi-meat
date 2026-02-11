@@ -37,6 +37,9 @@ export default function MenuPage() {
   const typeScrollRef = useRef<HTMLDivElement>(null);
   const navScrollRef = useRef<HTMLDivElement>(null);
 
+  const [expandTypeBar, setExpandTypeBar] = useState(false);
+  const typeWrapperRef = useRef<HTMLDivElement>(null);
+
   const [showNavLeft, setShowNavLeft] = useState(false);
   const [showNavRight, setShowNavRight] = useState(true);
   const [showTypeLeft, setShowTypeLeft] = useState(false);
@@ -82,6 +85,24 @@ export default function MenuPage() {
     ),
     [],
   );
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!typeWrapperRef.current) return;
+      const rect = typeWrapperRef.current.getBoundingClientRect();
+
+      if (rect.top <= 80) {
+        setExpandTypeBar(true);
+      } else {
+        setExpandTypeBar(false);
+      }
+    };
+
+    const onScroll = () => requestAnimationFrame(handleScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     const nav = navScrollRef.current;
@@ -266,8 +287,17 @@ export default function MenuPage() {
 
                 {/* TYPE SELECTOR */}
                 {selectedCategory.types.length > 0 && (
-                  <div className="flex justify-center items-center sticky top-35 md:top-40 lg:top-20 z-10">
-                    <div className="mb-3 rounded-lg border overflow-hidden  border-gray-500/30 bg-[#1b1b1b]  p-2 relative">
+                  <div
+                    ref={typeWrapperRef}
+                    className="flex justify-center items-center sticky top-35 md:top-40 lg:top-16 z-30 transition-all duration-500"
+                  >
+                    <div
+                      className={`
+        mb-3 relative overflow-hidden border border-gray-500/30 bg-[#1b1b1b]/70
+        backdrop-blur-xl p-2 transition-all duration-500 ease-out
+        ${expandTypeBar ? "w-[98%] -mx-[5%] rounded-xl shadow-[0_10px_40px_-10px_rgba(212,166,74,0.35)] scale-[1.02] flex justify-center items-center " : "w-auto rounded-lg scale-100"}
+      `}
+                    >
                       {showTypeLeft && (
                         <button
                           onClick={() =>
@@ -276,7 +306,7 @@ export default function MenuPage() {
                               behavior: "smooth",
                             })
                           }
-                          className="absolute left-1 top-1/2 -translate-y-1/2 z-20 lg:hidden p-1.5 bg-black/50 backdrop-blur-sm rounded-full border border-white/10"
+                          className="absolute left-1 top-1/2 -translate-y-1/2 z-20 lg:hidden p-1.5 bg-black/50 backdrop-blur-sm rounded-full border border-white/10 transition-all duration-300"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -303,7 +333,7 @@ export default function MenuPage() {
                               behavior: "smooth",
                             })
                           }
-                          className="absolute right-1 top-1/2 -translate-y-1/2 z-20 lg:hidden p-1.5 bg-black/50 backdrop-blur-sm rounded-full border border-white/10"
+                          className="absolute right-1 top-1/2 -translate-y-1/2 z-20 lg:hidden p-1.5 bg-black/50 backdrop-blur-sm rounded-full border border-white/10 transition-all duration-300"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -330,16 +360,16 @@ export default function MenuPage() {
                           <button
                             key={type.id}
                             onClick={() => setSelectedTypeId(type.id)}
-                            className={`flex items-center gap-2 cursor-pointer rounded-xl p-2 min-w-max border transition-all duration-200 ${
+                            className={`flex items-center gap-2 cursor-pointer rounded-xl p-2 min-w-max border transition-all duration-500 ${
                               selectedTypeId === type.id
-                                ? "bg-linear-to-br from-[#B38934]/20 to-[#e6ca79]/10 border-amber-500/40 text-amber-100"
+                                ? "bg-linear-to-br from-[#B38934]/20 to-[#e6ca79]/10 border-amber-500/40 text-amber-100 scale-105 shadow-[0_8px_30px_-8px_rgba(212,166,74,0.3)]"
                                 : "border-white/10 bg-white/5 text-gray-400 hover:bg-white/10"
                             }`}
                           >
                             <div
-                              className={`p-2 rounded-lg transition-all duration-200 ${
+                              className={`p-2 rounded-lg transition-all duration-500 ${
                                 selectedTypeId === type.id
-                                  ? "bg-amber-500/20"
+                                  ? "bg-amber-500/20 scale-110"
                                   : "bg-white/5"
                               }`}
                             >
@@ -367,7 +397,11 @@ export default function MenuPage() {
                 {/* ITEMS GRID */}
                 {currentItems ? (
                   <div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-10 gap-4">
+                    <div
+                      className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-10 gap-4 transition-all duration-500    ${
+                        expandTypeBar ? "-mt-12" : "mt-0"
+                      }`}
+                    >
                       {/* ================= MAIN CARD ================= */}
                       <div
                         className="
@@ -400,14 +434,14 @@ export default function MenuPage() {
                                   placeholder="blur"
                                   blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                                 />
-                                {/* <div className="absolute top-3 left-3 flex gap-2 z-10">
+                                <div className="absolute top-3 left-3 flex gap-2 z-10">
                                   <span className="text-xs bg-white/5 backdrop-blur text-white px-2 py-1 rounded-md border border-white/20">
-                                    {currentItems?.time}
+                                    {currentItems?.category}
                                   </span>
-                                  <span className="text-xs bg-white/5 backdrop-blur text-white px-2 py-1 rounded-md border border-white/20">
+                                  {/* <span className="text-xs bg-white/5 backdrop-blur text-white px-2 py-1 rounded-md border border-white/20">
                                     {currentItems?.status}
-                                  </span>
-                                </div> */}
+                                  </span> */}
+                                </div>
                               </>
                             )}
                           </div>
