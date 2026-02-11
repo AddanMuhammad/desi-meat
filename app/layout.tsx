@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Work_Sans } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
 import { satoshi, itcClearface } from "./font";
 import { MobileBottomBar } from "./components/mobile-bottombar";
@@ -35,7 +36,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Analytics />
-      <GAListener />
+      <Suspense fallback={null}>
+        <GAListener />
+      </Suspense>
       <body
         className={`
           ${satoshi.variable}
