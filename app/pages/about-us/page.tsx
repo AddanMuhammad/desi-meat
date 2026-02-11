@@ -37,7 +37,7 @@ const AboutUs = () => {
       {/* ================= HERO SECTION ================= */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-0  grid grid-cols-1 lg:grid-cols-2 sm:gap-3 lg:gap-9 items-center">
         {/* Image */}
-        <div className="relative w-full aspect-[4/5] sm:aspect-[3/4] lg:aspect-[4/5]">
+        <div className="relative w-fullaspect-4/5 sm:aspect-3/4 lg:aspect-4/5">
           {/* Mobile Image */}
           <Image
             src="/images/person2.png"
@@ -106,7 +106,7 @@ const AboutUs = () => {
       {/* ================= PHILOSOPHY ================= */}
       <section className="bg-black py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-0 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative w-full aspect-[5/4]  lg:aspect-[4/3] ">
+          <div className="relative w-full aspect-5/4  lg:aspect-4/3 ">
             <Image
               src="/images/about-us1.png"
               alt="Philosophy"
